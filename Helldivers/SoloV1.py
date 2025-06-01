@@ -2,8 +2,8 @@
 
 from adafruit_hid.keycode import Keycode
 
-START_INPUT_DELAY = 0.4
-KEY_DELAY = 0.05
+START_INPUT_DELAY = 0.5
+KEY_DELAY = 0.1
 
 START_INPUT = Keycode.CONTROL
 
@@ -30,19 +30,19 @@ app = {
         (0x000020, 'A-CAN',     stratagem(DOWN,LEFT,DOWN,UP,UP,RIGHT)),
 
         # 2nd row ----------
-        (0x200000, 'S-MG',      stratagem(DOWN,UP,RIGHT,RIGHT,UP)),
-        (0x200000, 'S-Gat',     stratagem(DOWN,UP,RIGHT,LEFT)),        
-        (0x200000, 'S-Roc',     stratagem(DOWN,UP,RIGHT,RIGHT,LEFT)),
+        (0x002000, 'S-MG',      stratagem(DOWN,UP,RIGHT,RIGHT,UP)),
+        (0x002000, 'S-Gat',     stratagem(DOWN,UP,RIGHT,LEFT)),        
+        (0x002000, 'S-Roc',     stratagem(DOWN,UP,RIGHT,RIGHT,LEFT)),
 
         # 3rd row ----------
-        (0x000000, '120',       stratagem(RIGHT,RIGHT,DOWN,LEFT,RIGHT,DOWN)),
+        (0x200000, '120',       stratagem(RIGHT,RIGHT,DOWN,LEFT,RIGHT,DOWN)),
         (0x000000, '',          []),
-        (0x302000, '',          []),
+        (0x000000, '',          []),
 
         # 4th row ----------
-        (0x002000, 'Resup',     stratagem(DOWN, DOWN, UP, RIGHT)),
-        (0x002000, 'SOS',       stratagem(UP, DOWN, RIGHT, UP)),
-        (0x002000, 'Reinf',     stratagem(UP, DOWN, RIGHT, LEFT, UP)), 
+        (0x302000, 'Resup',     stratagem(DOWN, DOWN, UP, RIGHT)),
+        (0x302000, 'SOS',       stratagem(UP, DOWN, RIGHT, UP)),
+        (0x302000, 'Reinf',     stratagem(UP, DOWN, RIGHT, LEFT, UP)), 
         
         # Encoder button ---
         (0x000000, '',          []),

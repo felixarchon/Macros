@@ -1,4 +1,4 @@
-#Macropad, Hotkeys - Helldivers 2 - Early Solo Build
+#Macropad, Hotkeys - Helldivers 2 - Macro Template
 
 from adafruit_hid.keycode import Keycode
 
@@ -21,7 +21,7 @@ def stratagem(*argv):
     return keys
 
 app = {
-    'name' : 'HD2 - Solo Runs',
+    'name' : 'HD2 - The Thing',
     'macros' : [
         # COLOR    LABEL        KEY SEQUENCE
         # 1st row ----------

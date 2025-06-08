@@ -1,4 +1,4 @@
-#Macropad, Hotkeys - Helldivers 2 - Macro Template
+#Macropad, Hotkeys - Guild Wars 2 - Macro Template
 
 from adafruit_hid.keycode import Keycode
 

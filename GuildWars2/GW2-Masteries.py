@@ -41,28 +41,28 @@ DOWN = Keycode.DOWN_ARROW
 LEFT = Keycode.LEFT_ARROW
 RIGHT = Keycode.RIGHT_ARROW
 
-def mount(argv):    
-    keys = [CTRL, KEY_DELAY, ALT, KEY_DELAY, SHFT, KEY_DELAY, argv, KEY_DELAY]
+def mastery(argv):    
+    keys = [CTRL, KEY_DELAY, ALT, KEY_DELAY, argv, KEY_DELAY]
     return keys
 
 app = {
-    'name' : 'GW2 - Mounts',
+    'name' : 'GW2 - Masteries',
     'macros' : [
         # COLOR    LABEL        KEY SEQUENCE
         # 1st row ----------
-        (0x000020, 'Rptr',      mount(R)),
-        (0x000020, 'Sprng',     mount(S)),
-        (0x000020, 'Skim',      mount(K)),
+        (0x000020, 'Fish',      mastery(F)),
+        (0x000020, 'Skiff',     mastery(S)),
+        (0x000020, 'Bot',       mastery(J)),
 
         # 2nd row ----------
-        (0x002000, 'Jckl',      mount(J)),
-        (0x002000, 'Grffn',     mount(G)),        
-        (0x002000, 'RBtl',      mount(B)),
+        (0x002000, 'Rift',      mastery(R)),
+        (0x002000, 'Door',      mastery(D)),        
+        (0x000000, '',          []),
 
         # 3rd row ----------
-        (0x200000, 'Skscl',     mount(A)),
-        (0x200000, 'Trtl',      mount(T)),
-        (0x200000, 'WarClw',    mount(C)),
+        (0x000000, '',          []),
+        (0x000000, '',          []),
+        (0x000000, '',          []),
 
         # 4th row ----------
         (0x000000, '',          []),

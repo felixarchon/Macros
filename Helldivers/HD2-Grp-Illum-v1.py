@@ -1,19 +1,19 @@
-#Macropad, Hotkeys - Helldivers 2 - Early Bot Solo Build
-from HD2_Stratagem_List import SupportWeapons, Backpacks, Sentries, Orbitals, Missions
+#Macropad, Hotkeys - Helldivers 2 - Early Illuminate Solo Build
+from HD2_Stratagem_List import SupportWeapons, Sentries, Orbitals, Missions, GuardDogs
 
 support = SupportWeapons()
-pack = Backpacks()
+guard = GuardDogs()
 sentry = Sentries()
 orbital = Orbitals()
 mission = Missions()
 
 app = {
-    'name' : 'HD2 - Solo Bot Runs',
+    'name' : 'HD2 - Grp Illum Runs',
     'macros' : [
         # 1st row ----------
-        support.HeavyMachineGun,
         support.AutoCannon,
-        pack.Supply,
+        support.AntiMaterial,
+        support.RecoillessRifle,
 
         # 2nd row ----------
         sentry.MachineGun,

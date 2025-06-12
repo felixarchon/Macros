@@ -1,4 +1,4 @@
-#Macropad, Hotkeys - Helldivers 2 - Early Illuminate Group Build
+#Macropad, Hotkeys - Helldivers 2 - Early Terminid Group Build
 from HD2_Stratagem_List import SupportWeapons, Sentries, Orbitals, Missions, GuardDogs
 
 support = SupportWeapons()
@@ -10,26 +10,26 @@ mission = Missions()
 none = (0x000000, '', [])
 
 app = {
-    'name' : 'HD2 - Grp Illum Runs',
+    'name' : 'HD2 - Grp Bug Runs',
     'macros' : [
         # 1st row ----------
         support.AutoCannon,
-        support.AntiMaterial,
         support.RecoillessRifle,
+        support.HeavyMachineGun,
 
         # 2nd row ----------
-        sentry.MachineGun,
         sentry.AutoCannon,
         sentry.Rocket,
+        sentry.EMS,
 
         # 3rd row ----------
         orbital.Barrage_120mm,
         orbital.Precision,
-        orbital.Gatling,
+        sentry.MachineGun,
 
         # 4th row ----------
         mission.Resupply,
-        mission.SOS,
+        support.Commando,
         mission.Reinforce,
         
         # Encoder button ---

@@ -101,7 +101,7 @@ class SupportWeapons(HD2_Base):
 
     @property
     def Railgun(self):
-        return (self.Support, 'Rail', self.stratagem(self.DOWN, self.RIGHT, self.LEFT, self.DOWN, self.UP, self.LEFT, self.RIGHT))
+        return (self.Support, 'Rail', self.stratagem(self.DOWN, self.RIGHT, self.DOWN, self.UP, self.LEFT, self.RIGHT))
     
     @property
     def Spear(self):
@@ -160,6 +160,11 @@ class Backpacks(HD2_Base):
     @property
     def BallisticShield(self):
         return (self.Backpack, 'B-Shld', self.stratagem(self.DOWN, self.LEFT, self.DOWN, self.DOWN, self.UP, self.LEFT))
+    
+    @property
+    def ShieldGenerator(self):
+        return (self.Backpack, 'B-Gen', self.stratagem(self.DOWN, self.UP, self.LEFT, self.RIGHT, self.LEFT, self.RIGHT))
+
 
 
 class Vehicles(HD2_Base):
@@ -192,7 +197,7 @@ class Sentries(HD2_Base):
         return (self.Sentry, 'S-Roc', self.stratagem(self.DOWN,self.UP,self.RIGHT,self.RIGHT,self.LEFT))
 
     @property
-    def HMG(self):
+    def HeavyMachineGunEmplacement(self):
         return (self.Sentry, 'E-HMG', self.stratagem(self.DOWN, self.UP, self.LEFT, self.RIGHT, self.RIGHT, self.LEFT))
 
     @property

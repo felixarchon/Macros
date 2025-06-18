@@ -14,19 +14,16 @@ app = {
     'macros' : [
         # 1st row ----------
         support.AutoCannon,
-        support.RecoillessRifle,
-        support.HeavyMachineGun,
-
+        support.MachineGun,
+        guard.Rover, 
         # 2nd row ----------
         sentry.AutoCannon,
-        sentry.Rocket,
-        sentry.EMS,
-
-        # 3rd row ----------
-        orbital.Barrage_120mm,
-        orbital.Precision,
         sentry.MachineGun,
-
+        sentry.EMS,
+        # 3rd row ----------
+        orbital.Airburst,
+        orbital.RailCannon,
+        support.GrenadeLauncher,
         # 4th row ----------
         mission.Resupply,
         support.Commando,

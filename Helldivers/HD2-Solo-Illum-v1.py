@@ -12,22 +12,22 @@ app = {
     'macros' : [
         # 1st row ----------
         support.MachineGun,
-        support.HeavyMachineGun,
+        support.LaserCannon,
         guard.Rover,
 
         # 2nd row ----------
         sentry.MachineGun,
         sentry.AutoCannon,
-        sentry.Gatling,
+        sentry.EMS,
 
         # 3rd row ----------
         orbital.Barrage_120mm,
         orbital.Precision,
-        orbital.Gatling,
+        orbital.RailCannon,
 
         # 4th row ----------
         mission.Resupply,
-        mission.SOS,
+        support.GrenadeLauncher,
         mission.Reinforce,
         
         # Encoder button ---

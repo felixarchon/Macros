@@ -38,7 +38,7 @@ class HD2_Base:
     def Guard(self):
         return 0x000020
     @property
-    def Exo(self):
+    def Vehicle(self):
         return 0x000020
     @property
     def Sentry(self):
@@ -48,7 +48,7 @@ class HD2_Base:
         return 0x200000
     @property
     def Eagle(self):
-        return 0x200000
+        return 0xA8422D
     @property
     def Mission(self):
         return 0x302000
@@ -166,14 +166,21 @@ class Backpacks(HD2_Base):
         return (self.Backpack, 'B-Gen', self.stratagem(self.DOWN, self.UP, self.LEFT, self.RIGHT, self.LEFT, self.RIGHT))
 
 
-
 class Vehicles(HD2_Base):
     def __init__(self):
         super().__init__()
 
     @property
     def PatriotExosuit(self):
-        return (self.Exo, 'Exo', self.stratagem(self.LEFT, self.DOWN, self.RIGHT, self.UP, self.LEFT, self.DOWN, self.DOWN))
+        return (self.Vehicle, 'P-Exo', self.stratagem(self.LEFT, self.DOWN, self.RIGHT, self.UP, self.LEFT, self.DOWN, self.DOWN))
+
+    @property
+    def FastReconVehicle(self):
+        return (self.Vehicle, 'Recon', self.stratagem(self.RIGHT, self.DOWN, self.LEFT, self.DOWN, self.RIGHT, self.DOWN, self.UP))
+
+    @property
+    def EmancipatorExosuit(self):
+        return (self.Vehicle, 'E-Exo', self.stratagem(self.LEFT, self.DOWN, self.RIGHT, self.UP, self.LEFT, self.DOWN, self.UP))
 
 
 class Sentries(HD2_Base):
@@ -329,31 +336,31 @@ class Eagles(HD2_Base):
 
     @property
     def Strafing(self):
-        return (self.Mission, 'Strf', self.stratagem(self.UP, self.RIGHT, self.RIGHT))
+        return (self.Eagle, 'E-Strf', self.stratagem(self.UP, self.RIGHT, self.RIGHT))
 
     @property
     def Airstrike(self):
-        return (self.Mission, 'Air', self.stratagem(self.UP, self.RIGHT, self.DOWN, self.RIGHT))
+        return (self.Eagle, 'E-Air', self.stratagem(self.UP, self.RIGHT, self.DOWN, self.RIGHT))
 
     @property
     def ClusterBomb(self):
-        return (self.Mission, 'Clstr', self.stratagem(self.UP, self.RIGHT, self.DOWN, self.DOWN, self.RIGHT))
+        return (self.Eagle, 'E-Cstr', self.stratagem(self.UP, self.RIGHT, self.DOWN, self.DOWN, self.RIGHT))
 
     @property
     def Napalm(self):
-        return (self.Mission, 'Nap', self.stratagem(self.UP, self.RIGHT, self.DOWN, self.UP))
+        return (self.Eagle, 'E-Nap', self.stratagem(self.UP, self.RIGHT, self.DOWN, self.UP))
 
     @property
     def Smoke(self):
-        return (self.Mission, 'Smk', self.stratagem(self.UP, self.RIGHT, self.UP, self.DOWN))
+        return (self.Eagle, 'E-Smk', self.stratagem(self.UP, self.RIGHT, self.UP, self.DOWN))
 
     @property
     def Rockets_110mm(self):
-        return (self.Mission, 'R-110', self.stratagem(self.UP, self.RIGHT, self.UP, self.LEFT))
+        return (self.Eagle, 'E-110', self.stratagem(self.UP, self.RIGHT, self.UP, self.LEFT))
 
     @property
     def Bomb_500kg(self):
-        return (self.Mission, 'B-500', self.stratagem(self.UP, self.RIGHT, self.DOWN, self.DOWN, self.DOWN))
+        return (self.Eagle, 'E-500', self.stratagem(self.UP, self.RIGHT, self.DOWN, self.DOWN, self.DOWN))
 
 
 

@@ -2,7 +2,6 @@
 from HD2_Stratagem_List import SupportWeapons, Sentries, Orbitals, Missions, GuardDogs
 
 support = SupportWeapons()
-guard = GuardDogs()
 sentry = Sentries()
 orbital = Orbitals()
 mission = Missions()
@@ -14,7 +13,7 @@ app = {
     'macros' : [
         # 1st row ----------
         support.AutoCannon,
-        support.AntiMaterial,
+        support.Spear,
         support.RecoillessRifle,
 
         # 2nd row ----------

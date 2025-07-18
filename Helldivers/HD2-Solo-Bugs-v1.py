@@ -16,7 +16,7 @@ app = {
         # 1st row ----------
         support.MachineGun,
         support.RecoillessRifle,
-        guard.Rover ,
+        guard.Rover,
 
         # 2nd row ----------
         sentry.AutoCannon,

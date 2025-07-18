@@ -1,11 +1,12 @@
 #Macropad, Hotkeys - Helldivers 2 - Early Bug Solo Build
-from HD2_Stratagem_List import SupportWeapons, Sentries, Orbitals, Missions, GuardDogs, Backpacks
+from HD2_Stratagem_List import SupportWeapons, Sentries, Orbitals, Missions, GuardDogs, Backpacks, Eagles
 
 support = SupportWeapons()
 sentry = Sentries()
 orbital = Orbitals()
 mission = Missions()
 guard = GuardDogs()
+eagle = Eagles()
 back = Backpacks()
 
 none = (0x000000, '', [])
@@ -25,13 +26,13 @@ app = {
         sentry.EMS,
 
         # 3rd row ----------
-        orbital.Laser,
         orbital.RailCannon,
+        eagle.Bomb_500kg,
         sentry.Tesla,
         
        # 4th row ----------
         mission.Resupply,
-        sentry.Mortar,
+        back.Jump,
         mission.Reinforce,
         
         # Encoder button ---

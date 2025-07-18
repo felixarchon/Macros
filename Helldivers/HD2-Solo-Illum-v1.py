@@ -7,6 +7,8 @@ sentry = Sentries()
 orbital = Orbitals()
 mission = Missions()
 
+none = (0x000000, '', [])
+
 app = {
     'name' : 'HD2 - Solo Illum Runs',
     'macros' : [
@@ -31,6 +33,6 @@ app = {
         mission.Reinforce,
         
         # Encoder button ---
-        (0x000000, '',          []),
+        none,
     ]
 }

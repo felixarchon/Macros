@@ -131,6 +131,10 @@ class SupportWeapons(HD2_Base):
     def Commando(self):
         return (self.Support, 'Cmmdo', self.stratagem(self.DOWN,self.LEFT,self.UP,self.DOWN,self.RIGHT))
 
+    @property
+    def Epoch(self):
+        return (self.Support, 'Epoch', self.stratagem(self.DOWN,self.LEFT,self.UP,self.LEFT,self.RIGHT))
+
 
 class GuardDogs(HD2_Base):
     def __init__(self):
@@ -164,6 +168,10 @@ class Backpacks(HD2_Base):
     @property
     def ShieldGenerator(self):
         return (self.Backpack, 'B-Gen', self.stratagem(self.DOWN, self.UP, self.LEFT, self.RIGHT, self.LEFT, self.RIGHT))
+
+    @property
+    def Warp(self):
+        return (self.Backpack, 'B-Wrp', self.stratagem(self.DOWN, self.LEFT, self.RIGHT, self.DOWN, self.LEFT, self.RIGHT))
 
 
 class Vehicles(HD2_Base):
@@ -230,6 +238,10 @@ class Sentries(HD2_Base):
     @property
     def EMS(self):
         return (self.Sentry, 'S-EMS', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.DOWN, self.RIGHT))
+
+    @property
+    def Laser(self):
+        return (self.Sentry, 'S-LAS', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.DOWN, self.UP, self.RIGHT))
 
 
 class Orbitals(HD2_Base):

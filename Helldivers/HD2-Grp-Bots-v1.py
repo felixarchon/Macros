@@ -25,7 +25,7 @@ app = {
 
         # 3rd row ----------
         orbital.RailCannon,
-        orbital.Barrage_380mm,
+        orbital.Barrage_120mm,
         eagle.Bomb_500kg,
 
         # 4th row ----------

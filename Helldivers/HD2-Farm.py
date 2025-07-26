@@ -17,13 +17,13 @@ app = {
         # COLOR     LABEL       KEY SEQUENCE
         # 1st row ----------
         support.LaserCannon,
-        back.Jump,
+        back.Warp,
         support.QuasarCannon,
 
         # 2nd row ----------
         sentry.MachineGun,
         sentry.AutoCannon,
-        sentry.EMS,
+        support.GrenadeLauncher,
 
         # 3rd row ----------
         orbital.RailCannon,

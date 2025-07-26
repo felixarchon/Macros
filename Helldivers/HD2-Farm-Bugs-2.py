@@ -23,16 +23,16 @@ app = {
         # 2nd row ----------
         sentry.MachineGun,
         sentry.AutoCannon,
-        sentry.EMS,
+        sentry.Laser,
 
         # 3rd row ----------
-        orbital.RailCannon,
+        orbital.Barrage_120mm,
         eagle.Bomb_500kg,
         vehicle.FastReconVehicle,
         
         # 4th row ----------
         mission.Resupply,
-        support.AutoCannon,
+        support.LaserCannon,
         mission.Reinforce,
         
         # Encoder button ---

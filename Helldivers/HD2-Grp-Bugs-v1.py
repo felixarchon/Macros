@@ -17,8 +17,8 @@ app = {
         support.MachineGun,
         guard.Rover, 
         # 2nd row ----------
-        sentry.AutoCannon,
         sentry.MachineGun,
+        sentry.AutoCannon,
         sentry.EMS,
         # 3rd row ----------
         orbital.Airburst,

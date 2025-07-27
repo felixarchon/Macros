@@ -1,24 +1,25 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Macros
+These macros are for a [Macropad](https://www.adafruit.com/product/5128), using the [Hotkeys](https://github.com/adafruit/Adafruit_Learning_System_Guides/tree/main/Macropad_Hotkeys) library.
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# General
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+coming soon
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# Guild Wars 2
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+coming soon
 
-# Intellisense
-python -m venv vHelldivers
-vHelldivers\Scripts\activate
+# Helldivers
+
+Inspired by the [macros](https://adafruit-playground.com/u/squid_jpg/pages/easy-helldivers-ii-stratagem-macros-for-rp2040-macropad) posted on Adafruit.
+
+## Setup
+
+Place the [HD2_Stratagem_List.py](/Helldivers/HD2_Stratagem_List.py) in the `lib` folder of the Hotkeys code, on the Macropad.
+
+Individual macro files to be used should be placed in the `macros` folder of the Hotkeys code.
+
+The included macro files are just examples of how to write your own macros using the `HD2_Stratagem_List.py` Library. The concept behing the example files is that each file is a potential and flexible loadout for a given situation.
+
+## Customize
+

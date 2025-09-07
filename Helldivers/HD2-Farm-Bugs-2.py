@@ -22,12 +22,12 @@ app = {
 
         # 2nd row ----------
         sentry.MachineGun,
-        sentry.AutoCannon,
-        sentry.Laser,
+        sentry.Gatling,
+        support.Stallwart,
 
         # 3rd row ----------
-        orbital.Barrage_120mm,
-        eagle.Bomb_500kg,
+        orbital.Gatling,
+        eagle.Strafing,
         vehicle.FastReconVehicle,
         
         # 4th row ----------

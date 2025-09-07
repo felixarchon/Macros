@@ -1,38 +1,37 @@
-#Macropad, Hotkeys - Helldivers 2 - Early Bug Solo Build
+#Macropad, Hotkeys - Helldivers 2 - Farming Build
 from HD2_Stratagem_List import SupportWeapons, Sentries, Orbitals, Missions, GuardDogs, Backpacks, Eagles
 
 support = SupportWeapons()
 sentry = Sentries()
 orbital = Orbitals()
 mission = Missions()
-guard = GuardDogs()
-eagle = Eagles()
 back = Backpacks()
+eagle = Eagles()
 
 none = (0x000000, '', [])
 
 app = {
-    'name' : 'HD2 - Lasers',
+    'name' : 'HD2 - Farm Illum 2',
     'macros' : [
         # COLOR     LABEL       KEY SEQUENCE
         # 1st row ----------
-        support.LaserCannon,
-        support.QuasarCannon,
-        guard.Rover,
+        support.Stallwart,
+        back.Warp,
+        support.MachineGun,
 
         # 2nd row ----------
         sentry.MachineGun,
-        sentry.AutoCannon,        
-        sentry.Laser,
+        sentry.Gatling,
+        back.Supply,
 
         # 3rd row ----------
+        orbital.Airburst,
+        eagle.Airstrike,
         orbital.RailCannon,
-        eagle.Bomb_500kg,
-        sentry.Tesla,
         
-       # 4th row ----------
+        # 4th row ----------
         mission.Resupply,
-        back.Jump,
+        support.LaserCannon,
         mission.Reinforce,
         
         # Encoder button ---

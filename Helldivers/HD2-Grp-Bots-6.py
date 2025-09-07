@@ -1,38 +1,36 @@
-#Macropad, Hotkeys - Helldivers 2 - Early Bug Solo Build
-from HD2_Stratagem_List import SupportWeapons, Sentries, Orbitals, Missions, GuardDogs, Backpacks, Eagles
+#Macropad, Hotkeys - Helldivers 2 - Early Automaton Group Build
+from HD2_Stratagem_List import SupportWeapons, Sentries, Orbitals, Missions, Backpacks, Eagles
 
 support = SupportWeapons()
 sentry = Sentries()
 orbital = Orbitals()
 mission = Missions()
-guard = GuardDogs()
-eagle = Eagles()
 back = Backpacks()
+eagle = Eagles()
 
 none = (0x000000, '', [])
 
 app = {
-    'name' : 'HD2 - Lasers',
+    'name' : 'HD2 - Grp Bots 6',
     'macros' : [
-        # COLOR     LABEL       KEY SEQUENCE
         # 1st row ----------
-        support.LaserCannon,
         support.QuasarCannon,
-        guard.Rover,
+        support.ExpendableAntiTank,
+        back.ShieldGenerator,
 
         # 2nd row ----------
         sentry.MachineGun,
-        sentry.AutoCannon,        
-        sentry.Laser,
+        sentry.AutoCannon,
+        sentry.Rocket,
 
         # 3rd row ----------
         orbital.RailCannon,
+        orbital.Barrage_120mm,
         eagle.Bomb_500kg,
-        sentry.Tesla,
-        
-       # 4th row ----------
+
+        # 4th row ----------
         mission.Resupply,
-        back.Jump,
+        eagle.Rockets_110mm,
         mission.Reinforce,
         
         # Encoder button ---

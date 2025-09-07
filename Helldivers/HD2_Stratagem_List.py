@@ -135,6 +135,14 @@ class SupportWeapons(HD2_Base):
     def Epoch(self):
         return (self.Support, 'Epoch', self.stratagem(self.DOWN,self.LEFT,self.UP,self.LEFT,self.RIGHT))
 
+    @property
+    def WASP(self):
+        return (self.Support, 'WASP', self.stratagem(self.DOWN,self.DOWN,self.UP,self.DOWN,self.RIGHT))
+
+    @property
+    def DeEscalator(self):
+        return (self.Support, 'DeEs', self.stratagem(self.DOWN, self.RIGHT, self.UP, self.LEFT, self.RIGHT))
+
 
 class GuardDogs(HD2_Base):
     def __init__(self):
@@ -147,6 +155,14 @@ class GuardDogs(HD2_Base):
     @property
     def GuardDog(self):
         return (self.Guard, 'M-Grd', self.stratagem(self.DOWN, self.UP, self.LEFT, self.UP, self.RIGHT, self.DOWN))
+
+    @property
+    def DogBreath(self):
+        return (self.Guard, 'G-Grd', self.stratagem(self.DOWN, self.UP, self.LEFT, self.UP, self.RIGHT, self.UP))
+
+    @property
+    def KNine(self):
+        return (self.Guard, 'E-Grd', self.stratagem(self.DOWN, self.UP, self.LEFT, self.UP, self.RIGHT, self.LEFT))
 
 
 class Backpacks(HD2_Base):
@@ -216,20 +232,16 @@ class Sentries(HD2_Base):
         return (self.Sentry, 'E-HMG', self.stratagem(self.DOWN, self.UP, self.LEFT, self.RIGHT, self.RIGHT, self.LEFT))
 
     @property
+    def AntiTankEmplacement(self):
+        return (self.Sentry, 'E-AT', self.stratagem(self.DOWN, self.UP, self.LEFT, self.RIGHT, self.RIGHT, self.RIGHT))
+
+    @property
     def Shield(self):
-        return (self.Sentry, 'Shld', self.stratagem(self.DOWN, self.DOWN, self.LEFT, self.RIGHT, self.LEFT, self.RIGHT))
+        return (self.Sentry, 'E-Shld', self.stratagem(self.DOWN, self.DOWN, self.LEFT, self.RIGHT, self.LEFT, self.RIGHT))
 
     @property
     def Tesla(self):
         return (self.Sentry, 'Tsla', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.UP, self.LEFT, self.RIGHT))
-
-    @property
-    def AnitPersonnelMinefield(self):
-        return (self.Sentry, 'M-AP', self.stratagem(self.DOWN, self.LEFT, self.UP, self.RIGHT))
-
-    @property
-    def IncendiaryMines(self):
-        return (self.Sentry, 'M-Inc', self.stratagem(self.DOWN, self.LEFT, self.LEFT, self.DOWN))
 
     @property
     def Mortar(self):
@@ -242,6 +254,18 @@ class Sentries(HD2_Base):
     @property
     def Laser(self):
         return (self.Sentry, 'S-LAS', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.DOWN, self.UP, self.RIGHT))
+
+    @property
+    def IncendiaryMines(self):
+        return (self.Sentry, 'M-Inc', self.stratagem(self.DOWN, self.LEFT, self.LEFT, self.DOWN))
+
+    @property
+    def AntiTankMines(self):
+        return (self.Sentry, 'M-AT', self.stratagem(self.DOWN, self.LEFT, self.UP, self.UP))
+
+    @property
+    def AnitPersonnelMinefield(self):
+        return (self.Sentry, 'M-AP', self.stratagem(self.DOWN, self.LEFT, self.UP, self.RIGHT))
 
 
 class Orbitals(HD2_Base):

@@ -1,9 +1,8 @@
 #Macropad, Hotkeys - Helldivers 2 - Early Bug Solo Build
-from HD2_Stratagem_List import SupportWeapons, Sentries, Orbitals, Missions, GuardDogs, Backpacks
+from HD2_Stratagem_List import SupportWeapons, Sentries, Orbitals, Missions, Backpacks
 
 support = SupportWeapons()
 back = Backpacks()
-guard = GuardDogs()
 sentry = Sentries()
 orbital = Orbitals()
 mission = Missions()
@@ -15,22 +14,23 @@ app = {
     'macros' : [
         # COLOR     LABEL       KEY SEQUENCE
         # 1st row ----------
-        support.HeavyMachineGun,
-        back.Supply,
-        guard.Rover,
+        back.ShieldGenerator,
+        support.AutoCannon,
+        sentry.HeavyMachineGunEmplacement,
 
         # 2nd row ----------
+        sentry.MachineGun,
         sentry.AutoCannon,
-        sentry.EMS,
-        sentry.Mortar,
+        sentry.AntiTankEmplacement,
 
         # 3rd row ----------
         orbital.RailCannon,
-        sentry.HeavyMachineGunEmplacement,
-        back.ShieldGenerator,
+        sentry.AntiTankMines,
+        sentry.Rocket,
+
         # 4th row ----------
         mission.Resupply,
-        support.AutoCannon,
+        sentry.Shield,
         mission.Reinforce,
         
         # Encoder button ---

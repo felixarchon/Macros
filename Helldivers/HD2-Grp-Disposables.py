@@ -8,32 +8,31 @@ mission = Missions()
 back = Backpacks()
 vehicle = Vehicles()
 eagle = Eagles()
-guard = GuardDogs()
 
 none = (0x000000, '', [])
 
 app = {
-    'name' : 'HD2 - Grp Bugs 6',
+    'name' : 'HD2 - Disposables',
     'macros' : [
         # COLOR     LABEL       KEY SEQUENCE
         # 1st row ----------
-        support.AutoCannon,
+        support.Commando,
         back.Warp,
-        support.QuasarCannon,
+        support.ExpendableAntiTank,
 
         # 2nd row ----------
         sentry.MachineGun,
         sentry.AutoCannon,
-        orbital.Laser,
+        back.Supply,
 
         # 3rd row ----------
+        orbital.Airburst,
         orbital.Barrage_120mm,
-        orbital.RailCannon,
         eagle.Bomb_500kg,
         
         # 4th row ----------
         mission.Resupply,
-        guard.DogBreath,
+        orbital.Walking,
         mission.Reinforce,
         
         # Encoder button ---

@@ -143,6 +143,18 @@ class SupportWeapons(HD2_Base):
     def DeEscalator(self):
         return (self.Support, 'DeEs', self.stratagem(self.DOWN, self.RIGHT, self.UP, self.LEFT, self.RIGHT))
 
+    @property
+    def Speargun(self):
+        return (self.Support, 'Sp-Gn',self.stratagem(self.DOWN, self.RIGHT, self.DOWN, self.LEFT, self.UP, self.RIGHT))
+    
+    @property
+    def ExpendableNapalm(self):
+        return (self.Support, 'ENap', self.stratagem(self.DOWN, self.DOWN, self.LEFT, self.UP, self.LEFT))
+
+    @property
+    def MissleSilo(self):
+        return (self.Support, 'MSilo', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.DOWN, self.DOWN))
+
 
 class GuardDogs(HD2_Base):
     def __init__(self):

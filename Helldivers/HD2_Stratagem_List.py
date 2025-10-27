@@ -1,4 +1,5 @@
 from adafruit_hid.keycode import Keycode
+from adafruit_hid.mouse import Mouse
 
 # This file goes in the root directory (same as code.py)
 class HD2_Base:
@@ -9,6 +10,13 @@ class HD2_Base:
     @property
     def KEY_DELAY(self): 
         return 0.1
+    @property
+    def LONG_DELAY(self): 
+        return 0.5    
+    @property
+    def SHORT_DELAY(self): 
+        return 0.1  
+
 
     #Stratagem Keys
     @property
@@ -26,6 +34,30 @@ class HD2_Base:
     @property
     def RIGHT(self): 
         return Keycode.RIGHT_ARROW
+
+    #Other Keys
+    @property
+    def FIVE(self):
+        return Keycode.FIVE
+    @property
+    def X(self):
+        return Keycode.X
+
+
+    #Mouse Clicks
+    def M_L_CLICK(self):
+        return {'buttons':Mouse.LEFT_BUTTON}
+    def M_R_CLICK(self):
+        return {'buttons':Mouse.RIGHT_BUTTON}
+    def DROP_WHEEL_UP(self):
+        return {'y':-300}
+    def DROP_WHEEL_DOWN(self):
+        return {'y':300}
+    def DROP_WHEEL_LEFT(self):
+        return {'x':-300}
+    def DROP_WHEEL_RIGHT(self):
+        return {'x':300}
+
 
     #Colors
     @property
@@ -52,6 +84,9 @@ class HD2_Base:
     @property
     def Mission(self):
         return 0x302000
+    @property
+    def Function(self):
+        return 0xFF4400
 
     def stratagem(self, *argv):
         keys = [self.START_INPUT, self.START_INPUT_DELAY]
@@ -60,9 +95,18 @@ class HD2_Base:
             keys += [key, self.KEY_DELAY, -key, self.KEY_DELAY]
 
         return keys
+
+    def drop_back(self):
+        return [self.X, self.LONG_DELAY, self.DROP_WHEEL_UP(), self.DROP_WHEEL_LEFT(), self.SHORT_DELAY ,self.M_L_CLICK()]
+
+    def drop_stratagem(self):
+        return [self.X, self.LONG_DELAY, self.DROP_WHEEL_UP(), self.DROP_WHEEL_RIGHT(), self.SHORT_DELAY ,self.M_L_CLICK()]
+
+    def drop_samples(self):
+        return [self.X, self.LONG_DELAY, self.DROP_WHEEL_DOWN(), self.DROP_WHEEL_RIGHT(), self.SHORT_DELAY ,self.M_L_CLICK()]
+
     
 # COLOR     LABEL       KEY SEQUENCE
-
 class SupportWeapons(HD2_Base):
     def __init__(self):
         super().__init__()
@@ -155,6 +199,9 @@ class SupportWeapons(HD2_Base):
     def MissleSilo(self):
         return (self.Support, 'MSilo', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.DOWN, self.DOWN))
 
+    @property
+    def PortableHellbomb(self):
+        return (self.Support, 'Hell', self.stratagem(self.DOWN, self.RIGHT, self.UP, self.UP, self.UP))
 
 class GuardDogs(HD2_Base):
     def __init__(self):
@@ -175,7 +222,6 @@ class GuardDogs(HD2_Base):
     @property
     def KNine(self):
         return (self.Guard, 'E-Grd', self.stratagem(self.DOWN, self.UP, self.LEFT, self.UP, self.RIGHT, self.LEFT))
-
 
 class Backpacks(HD2_Base):
     def __init__(self):
@@ -201,7 +247,6 @@ class Backpacks(HD2_Base):
     def Warp(self):
         return (self.Backpack, 'B-Wrp', self.stratagem(self.DOWN, self.LEFT, self.RIGHT, self.DOWN, self.LEFT, self.RIGHT))
 
-
 class Vehicles(HD2_Base):
     def __init__(self):
         super().__init__()
@@ -217,7 +262,6 @@ class Vehicles(HD2_Base):
     @property
     def EmancipatorExosuit(self):
         return (self.Vehicle, 'E-Exo', self.stratagem(self.LEFT, self.DOWN, self.RIGHT, self.UP, self.LEFT, self.DOWN, self.UP))
-
 
 class Sentries(HD2_Base):
     def __init__(self):
@@ -279,7 +323,6 @@ class Sentries(HD2_Base):
     def AnitPersonnelMinefield(self):
         return (self.Sentry, 'M-AP', self.stratagem(self.DOWN, self.LEFT, self.UP, self.RIGHT))
 
-
 class Orbitals(HD2_Base):
     def __init__(self):
         super().__init__()
@@ -327,7 +370,6 @@ class Orbitals(HD2_Base):
     @property
     def Smoke(self):
         return (self.Orbital , 'O-Smk', self.stratagem(self.RIGHT, self.RIGHT, self.DOWN, self.UP))
-
 
 class Missions(HD2_Base):
     def __init__(self):
@@ -377,7 +419,6 @@ class Missions(HD2_Base):
     def SuperEarthFlag(self):
         return (self.Mission, 'Flag', self.stratagem(self.DOWN, self.UP, self.DOWN, self.UP))
 
-
 class Eagles(HD2_Base):
     def __init__(self):
         super().__init__()
@@ -410,19 +451,14 @@ class Eagles(HD2_Base):
     def Bomb_500kg(self):
         return (self.Eagle, 'E-500', self.stratagem(self.UP, self.RIGHT, self.DOWN, self.DOWN, self.DOWN))
 
+class Functions(HD2_Base):
+    def __init__(self):
+        super().__init__()
 
+    @property
+    def ArmDropHellbomb(self):
+        return(self.Function, 'D-Hell', [self.FIVE, self.SHORT_DELAY, -self.FIVE, self.SHORT_DELAY] + self.drop_back())
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @property
+    def DropStratagem(self):
+        return (self.Function, 'D_Strat', self.drop_stratagem())

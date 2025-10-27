@@ -11,26 +11,26 @@ eagle = Eagles()
 none = (0x000000, '', [])
 
 app = {
-    'name' : 'HD2 - Grp Bot Runs',
+    'name' : 'HD2 - Grp Bots Fast',
     'macros' : [
         # 1st row ----------
-        support.QuasarCannon,
-        support.Spear,
+        support.ExpendableAntiTank,
+        support.Commando,
         back.ShieldGenerator,
 
         # 2nd row ----------
-        sentry.MachineGun,
+        sentry.Rocket,
         sentry.AutoCannon,
-        sentry.EMS,
+        support.ExpendableNapalm,
 
         # 3rd row ----------
         orbital.RailCannon,
-        orbital.Barrage_120mm,
+        orbital.Precision,
         eagle.Bomb_500kg,
 
         # 4th row ----------
         mission.Resupply,
-        eagle.Rockets_110mm,
+        support.MissleSilo,
         mission.Reinforce,
         
         # Encoder button ---

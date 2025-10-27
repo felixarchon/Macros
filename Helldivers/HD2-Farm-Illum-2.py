@@ -17,7 +17,7 @@ app = {
         # COLOR     LABEL       KEY SEQUENCE
         # 1st row ----------
         support.Stallwart,
-        guard.Rover
+        guard.Rover,
         support.MachineGun,
 
         # 2nd row ----------

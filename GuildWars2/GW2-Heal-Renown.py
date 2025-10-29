@@ -31,7 +31,7 @@ app = {
         (0x000020, '3-4-5',      combos(6.75, [THREE, FOUR, FIVE])),
 
         # 2nd row ----------
-        none,
+        (0x000020, '2-3-5',      combos(6.75, [TWO, THREE, FIVE])),
         none,        
         none,
 

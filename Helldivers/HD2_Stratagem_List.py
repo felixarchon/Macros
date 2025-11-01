@@ -49,6 +49,7 @@ class HD2_Base:
         return {'buttons':Mouse.LEFT_BUTTON}
     def M_R_CLICK(self):
         return {'buttons':Mouse.RIGHT_BUTTON}
+
     def DROP_WHEEL_UP(self):
         return {'y':-300}
     def DROP_WHEEL_DOWN(self):
@@ -57,6 +58,36 @@ class HD2_Base:
         return {'x':-300}
     def DROP_WHEEL_RIGHT(self):
         return {'x':300}
+
+    def EMOTE_WHEEL_UP(self):
+        return {'y':-300}
+    def EMOTE_WHEEL_DOWN(self):
+        return {'y':300}
+    def EMOTE_WHEEL_LEFT(self):
+        return {'x':-300}
+    def EMOTE_WHEEL_RIGHT(self):
+        return {'x':300}
+
+    def COMM_WHEEL_MARK(self):
+        return {'y':-300}
+    def COMM_WHEEL_WAIT(self):
+        return {'y':300}
+    def COMM_WHEEL_YES(self):
+        return {'x':-300}
+    def COMM_WHEEL_THANKS(self):
+        return {'x':300}
+    def COMM_WHEEL_SUPPLIES(self):
+        return {'y':-300}
+    def COMM_WHEEL_SORRY(self):
+        return {'y':300}
+    def COMM_WHEEL_NO(self):
+        return {'x':-300}
+    def COMM_WHEEL_FOLLOW(self):
+        return {'x':300}
+
+
+
+
 
 
     #Colors
@@ -462,3 +493,11 @@ class Functions(HD2_Base):
     @property
     def DropStratagem(self):
         return (self.Function, 'D_Strat', self.drop_stratagem())
+
+    @property
+    def DropBackpack(self):
+        return (self.Function, 'D_Back', self.drop_back())
+
+    @property
+    def DropSamples(self):
+        return (self.Function, 'D_Back', self.drop_samples())

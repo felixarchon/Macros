@@ -81,7 +81,7 @@ app = {
         (0x000020, 'Gntlt',      keytimes([
             (F1,0.3), 
             (THREE,1.25),
-            (ZERO,0..3),
+            (ZERO,0.3),
             (SEVEN,0.3),
             (EIGHT,0.3),
             (FOUR,0.3),

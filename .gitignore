@@ -1,1 +1,4 @@
 vHellDivers/
+.vscode/
+build/
+*.mpy

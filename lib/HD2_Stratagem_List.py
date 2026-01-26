@@ -3,7 +3,7 @@ from adafruit_hid.mouse import Mouse
 
 # This file goes in the root directory (same as code.py)
 class HD2_Base:
-    #Timings
+# Timings
     @property
     def START_INPUT_DELAY(self): 
         return 0.5    
@@ -17,8 +17,7 @@ class HD2_Base:
     def SHORT_DELAY(self): 
         return 0.1  
 
-
-    #Stratagem Keys
+# Stratagem Keys
     @property
     def START_INPUT(self): 
         return Keycode.CONTROL
@@ -35,7 +34,7 @@ class HD2_Base:
     def RIGHT(self): 
         return Keycode.RIGHT_ARROW
 
-    #Other Keys
+# Other Keys
     @property
     def FIVE(self):
         return Keycode.FIVE
@@ -44,12 +43,13 @@ class HD2_Base:
         return Keycode.X
 
 
-    #Mouse Clicks
+# Mouse Clicks
     def M_L_CLICK(self):
         return {'buttons':Mouse.LEFT_BUTTON}
     def M_R_CLICK(self):
         return {'buttons':Mouse.RIGHT_BUTTON}
 
+# Mouse Directions
     def DROP_WHEEL_UP(self):
         return {'y':-300}
     def DROP_WHEEL_DOWN(self):
@@ -58,6 +58,15 @@ class HD2_Base:
         return {'x':-300}
     def DROP_WHEEL_RIGHT(self):
         return {'x':300}
+    def DROP_WHEEL_UP_LEFT(self):
+        return {'y':-300,'x':-300}
+    def DROP_WHEEL_UP_RIGHT(self):
+        return {'y':-300,'x':300}
+    def DROP_WHEEL_DOWN_RIGHT(self):
+        return {'y':300,'x':300}
+    def DROP_WHEEL_DOWN_LEFT(self):
+        return {'y':300,'x':-300}
+
 
     def EMOTE_WHEEL_UP(self):
         return {'y':-300}
@@ -68,22 +77,22 @@ class HD2_Base:
     def EMOTE_WHEEL_RIGHT(self):
         return {'x':300}
 
-    def COMM_WHEEL_MARK(self):
+    def COMM_WHEEL_TOP(self):
         return {'y':-300}
-    def COMM_WHEEL_WAIT(self):
+    def COMM_WHEEL_BOTTOM(self):
         return {'y':300}
-    def COMM_WHEEL_YES(self):
-        return {'x':-300}
-    def COMM_WHEEL_THANKS(self):
+    def COMM_WHEEL_RIGHT(self):
         return {'x':300}
-    def COMM_WHEEL_SUPPLIES(self):
-        return {'y':-300}
-    def COMM_WHEEL_SORRY(self):
-        return {'y':300}
-    def COMM_WHEEL_NO(self):
+    def COMM_WHEEL_LEFT(self):
         return {'x':-300}
-    def COMM_WHEEL_FOLLOW(self):
-        return {'x':300}
+    def COMM_WHEEL_TOP_RIGHT(self):
+        return {'y':-300, 'x',300}
+    def COMM_WHEEL_TOP_LEFT(self):
+        return {'y':-300, 'x':-300}
+    def COMM_WHEEL_BOTTOM_RIGHT(self):
+        return {'y':300,'x':300}
+    def COMM_WHEEL_BOTTOM_LEFT(self):
+        return {'y':300,'x':-300}
 
 
 
@@ -128,13 +137,17 @@ class HD2_Base:
         return keys
 
     def drop_back(self):
-        return [self.X, self.LONG_DELAY, self.DROP_WHEEL_UP(), self.DROP_WHEEL_LEFT(), self.SHORT_DELAY ,self.M_L_CLICK()]
+        return [self.X, self.LONG_DELAY, self.DROP_WHEEL_UP_LEFT(), self.SHORT_DELAY ,self.M_L_CLICK()]
 
     def drop_stratagem(self):
-        return [self.X, self.LONG_DELAY, self.DROP_WHEEL_UP(), self.DROP_WHEEL_RIGHT(), self.SHORT_DELAY ,self.M_L_CLICK()]
+        return [self.X, self.LONG_DELAY, self.DROP_WHEEL_UP_RIGHT(), self.SHORT_DELAY ,self.M_L_CLICK()]
 
     def drop_samples(self):
-        return [self.X, self.LONG_DELAY, self.DROP_WHEEL_DOWN(), self.DROP_WHEEL_RIGHT(), self.SHORT_DELAY ,self.M_L_CLICK()]
+        return [self.X, self.LONG_DELAY, self.DROP_WHEEL_DOWN_RIGHT(), self.SHORT_DELAY ,self.M_L_CLICK()]
+
+    def comm_yes(self):
+        return [self.X, self.LONG_DELAY, self.COMM_WHEEL_RIGHT(), self.SHORT_DELAY ,self.M_L_CLICK()]
+
 
     
 # COLOR     LABEL       KEY SEQUENCE
@@ -142,17 +155,10 @@ class SupportWeapons(HD2_Base):
     def __init__(self):
         super().__init__()
     
+    # Patriotic Administration Center
     @property
     def MachineGun(self): 
         return (self.Support, 'MG', self.stratagem(self.DOWN,self.LEFT,self.DOWN,self.UP,self.RIGHT))
-    
-    @property
-    def HeavyMachineGun(self):
-        return (self.Support, 'HMG', self.stratagem(self.DOWN, self.LEFT, self.UP, self.DOWN, self.DOWN))
-
-    @property
-    def AutoCannon(self):
-        return (self.Support, 'AC', self.stratagem(self.DOWN,self.LEFT,self.DOWN,self.UP,self.UP,self.RIGHT))
 
     @property
     def AntiMaterial(self):
@@ -169,19 +175,40 @@ class SupportWeapons(HD2_Base):
     @property
     def RecoillessRifle(self):
         return (self.Support, 'R-Rfl', self.stratagem(self.DOWN, self.LEFT, self.RIGHT, self.RIGHT, self.LEFT))
-    
+ 
     @property
     def Flamethrower(self):
         return (self.Support, 'Flm', self.stratagem(self.DOWN, self.LEFT, self.UP, self.DOWN, self.UP))
 
     @property
+    def AutoCannon(self):
+        return (self.Support, 'AC', self.stratagem(self.DOWN,self.LEFT,self.DOWN,self.UP,self.UP,self.RIGHT))
+
+    @property
+    def HeavyMachineGun(self):
+        return (self.Support, 'HMG', self.stratagem(self.DOWN, self.LEFT, self.UP, self.DOWN, self.DOWN))
+
+    @property
+    def AirburstRocketLauncher(self):
+        return (self.Support, 'ARL', self.stratagem(self.DOWN, self.UP,self.UP,self.LEFT,self.RIGHT))
+
+    @property
+    def Commando(self):
+        return (self.Support, 'Cmmdo', self.stratagem(self.DOWN,self.LEFT,self.UP,self.DOWN,self.RIGHT))
+
+    @property
     def Railgun(self):
         return (self.Support, 'Rail', self.stratagem(self.DOWN, self.RIGHT, self.DOWN, self.UP, self.LEFT, self.RIGHT))
-    
+
     @property
     def Spear(self):
         return (self.Support, 'Spear', self.stratagem(self.DOWN, self.DOWN, self.UP, self.DOWN, self.DOWN))
 
+    @property
+    def WASP(self):
+        return (self.Support, 'WASP', self.stratagem(self.DOWN,self.DOWN,self.UP,self.DOWN,self.RIGHT))
+
+    # Engineering Bay
     @property
     def GrenadeLauncher(self):
         return (self.Support, 'G-Lnch', self.stratagem(self.DOWN, self.LEFT, self.UP, self.LEFT, self.DOWN))
@@ -198,30 +225,31 @@ class SupportWeapons(HD2_Base):
     def QuasarCannon(self):
         return (self.Support, 'Qsr-C', self.stratagem(self.DOWN, self.DOWN, self.UP, self.LEFT, self.RIGHT))
 
+    # Warbonds
     @property
-    def AirburstRocketLauncher(self):
-        return (self.Support, 'ARL', self.stratagem(self.DOWN, self.UP,self.UP,self.LEFT,self.RIGHT))
+    def Sterilizer(self):
+        return (self.Support, 'Steri', self.stratagem(self.DOWN,self.LEFT,self.UP,self.DOWN,self.LEFT))
 
     @property
-    def Commando(self):
-        return (self.Support, 'Cmmdo', self.stratagem(self.DOWN,self.LEFT,self.UP,self.DOWN,self.RIGHT))
+    def PortableHellbomb(self):
+        return (self.Support, 'Hell', self.stratagem(self.DOWN, self.RIGHT, self.UP, self.UP, self.UP))
 
     @property
-    def Epoch(self):
-        return (self.Support, 'Epoch', self.stratagem(self.DOWN,self.LEFT,self.UP,self.LEFT,self.RIGHT))
-
-    @property
-    def WASP(self):
-        return (self.Support, 'WASP', self.stratagem(self.DOWN,self.DOWN,self.UP,self.DOWN,self.RIGHT))
+    def OneTrueFlag(self):
+        return (self.Support, 'Flag', self.stratagem(self.DOWN,self.LEFT,self.RIGHT,self.RIGHT,self.UP))
 
     @property
     def DeEscalator(self):
         return (self.Support, 'DeEs', self.stratagem(self.DOWN, self.RIGHT, self.UP, self.LEFT, self.RIGHT))
 
     @property
+    def Epoch(self):
+        return (self.Support, 'Epoch', self.stratagem(self.DOWN,self.LEFT,self.UP,self.LEFT,self.RIGHT))
+
+    @property
     def Speargun(self):
         return (self.Support, 'Sp-Gn',self.stratagem(self.DOWN, self.RIGHT, self.DOWN, self.LEFT, self.UP, self.RIGHT))
-    
+
     @property
     def ExpendableNapalm(self):
         return (self.Support, 'ENap', self.stratagem(self.DOWN, self.DOWN, self.LEFT, self.UP, self.LEFT))
@@ -231,8 +259,12 @@ class SupportWeapons(HD2_Base):
         return (self.Support, 'MSilo', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.DOWN, self.DOWN))
 
     @property
-    def PortableHellbomb(self):
-        return (self.Support, 'Hell', self.stratagem(self.DOWN, self.RIGHT, self.UP, self.UP, self.UP))
+    def Maxigun(self):
+        return (self.Support, 'Maxi', self.stratagem(self.DOWN, self.LEFT, self.RIGHT, self.DOWN, self.UP, self.UP))
+
+    @property
+    def Defoliation(self):
+        return (self.Support, 'Chain', self.stratagem(self.DOWN, self.LEFT, self.RIGHT, self.RIGHT, self.DOWN))
 
 class GuardDogs(HD2_Base):
     def __init__(self):
@@ -240,31 +272,37 @@ class GuardDogs(HD2_Base):
 
     @property
     def Rover(self):
-        return (self.Guard, 'L-Grd', self.stratagem(self.DOWN,self.UP,self.LEFT,self.UP,self.RIGHT,self.RIGHT))
+        return (self.Guard, 'Grd-L', self.stratagem(self.DOWN,self.UP,self.LEFT,self.UP,self.RIGHT,self.RIGHT))
 
     @property
     def GuardDog(self):
-        return (self.Guard, 'M-Grd', self.stratagem(self.DOWN, self.UP, self.LEFT, self.UP, self.RIGHT, self.DOWN))
+        return (self.Guard, 'Grd-M', self.stratagem(self.DOWN, self.UP, self.LEFT, self.UP, self.RIGHT, self.DOWN))
 
     @property
     def DogBreath(self):
-        return (self.Guard, 'G-Grd', self.stratagem(self.DOWN, self.UP, self.LEFT, self.UP, self.RIGHT, self.UP))
+        return (self.Guard, 'Grd-G', self.stratagem(self.DOWN, self.UP, self.LEFT, self.UP, self.RIGHT, self.UP))
 
     @property
     def KNine(self):
-        return (self.Guard, 'E-Grd', self.stratagem(self.DOWN, self.UP, self.LEFT, self.UP, self.RIGHT, self.LEFT))
+        return (self.Guard, 'Grd-E', self.stratagem(self.DOWN, self.UP, self.LEFT, self.UP, self.RIGHT, self.LEFT))
+
+    @property
+    def HotDog(self):
+        return (self.Guard, 'Grd-F', self.stratagem(self.DOWN, self.UP, self.LEFT, self.UP, self.RIGHT, self.RIGHT))
 
 class Backpacks(HD2_Base):
     def __init__(self):
         super().__init__()
-
-    @property
-    def Supply(self):
-        return (self.Backpack, 'Pack', self.stratagem(self.DOWN,self.LEFT,self.DOWN,self.UP,self.UP,self.DOWN))
-
+    
+    # Hanger
     @property
     def Jump(self):
         return (self.Backpack, 'Jump', self.stratagem(self.DOWN, self.UP, self.UP, self.DOWN, self.UP))
+
+    # Engineering Bay
+    @property
+    def Supply(self):
+        return (self.Backpack, 'Pack', self.stratagem(self.DOWN,self.LEFT,self.DOWN,self.UP,self.UP,self.DOWN))
 
     @property
     def BallisticShield(self):
@@ -273,6 +311,16 @@ class Backpacks(HD2_Base):
     @property
     def ShieldGenerator(self):
         return (self.Backpack, 'B-Gen', self.stratagem(self.DOWN, self.UP, self.LEFT, self.RIGHT, self.LEFT, self.RIGHT))
+
+    # Warbonds
+    @property
+    def DirectionalShield(self):
+        return (self.Backpack, 'D-Shld', self.stratagem(self.DOWN, self.UP, self.LEFT, self.RIGHT, self.LEFT, self.RIGHT))
+
+
+    @property
+    def Hover(self):
+        return (self.Backpack, 'B-Hovr', self.stratagem(self.DOWN, self.LEFT, self.RIGHT, self.DOWN, self.LEFT, self.RIGHT))
 
     @property
     def Warp(self):
@@ -297,30 +345,10 @@ class Vehicles(HD2_Base):
 class Sentries(HD2_Base):
     def __init__(self):
         super().__init__()
-
-    @property
-    def MachineGun(self):
-        return (self.Sentry, 'S-MG', self.stratagem(self.DOWN,self.UP,self.RIGHT,self.RIGHT,self.UP))
-
-    @property
-    def Gatling(self):
-        return (self.Sentry, 'S-Gat', self.stratagem(self.DOWN,self.UP,self.RIGHT,self.LEFT))
-
-    @property
-    def AutoCannon(self):
-        return (self.Sentry, 'S-AC', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.UP, self.LEFT, self.UP))
-
-    @property
-    def Rocket(self):
-        return (self.Sentry, 'S-Roc', self.stratagem(self.DOWN,self.UP,self.RIGHT,self.RIGHT,self.LEFT))
-
+    # Bridge
     @property
     def HeavyMachineGunEmplacement(self):
         return (self.Sentry, 'E-HMG', self.stratagem(self.DOWN, self.UP, self.LEFT, self.RIGHT, self.RIGHT, self.LEFT))
-
-    @property
-    def AntiTankEmplacement(self):
-        return (self.Sentry, 'E-AT', self.stratagem(self.DOWN, self.UP, self.LEFT, self.RIGHT, self.RIGHT, self.RIGHT))
 
     @property
     def Shield(self):
@@ -331,16 +359,13 @@ class Sentries(HD2_Base):
         return (self.Sentry, 'Tsla', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.UP, self.LEFT, self.RIGHT))
 
     @property
-    def Mortar(self):
-        return (self.Sentry, 'S-Mor', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.RIGHT, self.DOWN))
+    def Grenadier(self):
+        return (self.Sentry, 'E-Gren', self.stratagem(self.DOWN, self.RIGHT, self.DOWN, self.LEFT, self.LEFT))
 
+    #Engineering Bay
     @property
-    def EMS(self):
-        return (self.Sentry, 'S-EMS', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.DOWN, self.RIGHT))
-
-    @property
-    def Laser(self):
-        return (self.Sentry, 'S-LAS', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.DOWN, self.UP, self.RIGHT))
+    def AnitPersonnelMinefield(self):
+        return (self.Sentry, 'M-AP', self.stratagem(self.DOWN, self.LEFT, self.UP, self.RIGHT))
 
     @property
     def IncendiaryMines(self):
@@ -351,32 +376,67 @@ class Sentries(HD2_Base):
         return (self.Sentry, 'M-AT', self.stratagem(self.DOWN, self.LEFT, self.UP, self.UP))
 
     @property
-    def AnitPersonnelMinefield(self):
-        return (self.Sentry, 'M-AP', self.stratagem(self.DOWN, self.LEFT, self.UP, self.RIGHT))
+    def GasMines(self):
+        return (self.Sentry, 'M-Gas', self.stratagem(self.DOWN, self.LEFT, self.LEFT, self.RIGHT))
+
+    #Robotics Workshop
+    @property
+    def MachineGun(self):
+        return (self.Sentry, 'S-MG', self.stratagem(self.DOWN,self.UP,self.RIGHT,self.RIGHT,self.UP))
+
+    @property
+    def Gatling(self):
+        return (self.Sentry, 'S-Gat', self.stratagem(self.DOWN,self.UP,self.RIGHT,self.LEFT))
+
+    @property
+    def Mortar(self):
+        return (self.Sentry, 'S-Mor', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.RIGHT, self.DOWN))
+
+    @property
+    def AutoCannon(self):
+        return (self.Sentry, 'S-AC', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.UP, self.LEFT, self.UP))
+
+    @property
+    def Rocket(self):
+        return (self.Sentry, 'S-Roc', self.stratagem(self.DOWN,self.UP,self.RIGHT,self.RIGHT,self.LEFT))
+
+    @property
+    def EMS(self):
+        return (self.Sentry, 'S-EMS', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.DOWN, self.RIGHT))
+
+    # Warbonds
+    @property
+    def AntiTankEmplacement(self):
+        return (self.Sentry, 'E-AT', self.stratagem(self.DOWN, self.UP, self.LEFT, self.RIGHT, self.RIGHT, self.RIGHT))
+
+    @property
+    def Flame(self):
+        return (self.Sentry, 'S-FLAM', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.DOWN, self.UP, self.UP))
+
+    @property
+    def Laser(self):
+        return (self.Sentry, 'S-LAS', self.stratagem(self.DOWN, self.UP, self.RIGHT, self.DOWN, self.UP, self.RIGHT))
 
 class Orbitals(HD2_Base):
     def __init__(self):
         super().__init__()
+
+    # Orbital Cannons
+    @property
+    def Gatling(self):
+        return (self.Orbital, 'O-Gat', self.stratagem(self.RIGHT, self.DOWN, self.LEFT, self.UP, self.UP))
+
+    @property
+    def Airburst(self):
+        return (self.Orbital , 'O-Air', self.stratagem(self.RIGHT, self.RIGHT, self.RIGHT))
 
     @property
     def Barrage_120mm(self):
         return (self.Orbital , 'O-120', self.stratagem(self.RIGHT, self.RIGHT, self.DOWN, self.LEFT, self.RIGHT, self.DOWN))
 
     @property
-    def Precision(self):
-        return (self.Orbital, 'O-Prec', self.stratagem(self.RIGHT, self.RIGHT, self.UP))
-    
-    @property
-    def Gatling(self):
-        return (self.Orbital, 'O-Gat', self.stratagem(self.RIGHT, self.DOWN, self.LEFT, self.UP, self.UP))
-
-    @property
     def Barrage_380mm(self):
         return (self.Orbital , 'O-380', self.stratagem(self.RIGHT, self.DOWN, self.UP, self.UP, self.LEFT, self.DOWN, self.DOWN))
-
-    @property
-    def Airburst(self):
-        return (self.Orbital , 'O-Air', self.stratagem(self.RIGHT, self.RIGHT, self.RIGHT))
 
     @property
     def Walking(self):
@@ -387,8 +447,17 @@ class Orbitals(HD2_Base):
         return (self.Orbital , 'O-Las', self.stratagem(self.RIGHT, self.DOWN, self.UP, self.RIGHT, self.DOWN))
 
     @property
+    def Barrage_Napalm(self):
+        return (self.Orbital , 'O-Nap', self.stratagem(self.RIGHT, self.RIGHT, self.DOWN, self.LEFT, self.RIGHT, self.UP))
+
+    @property
     def RailCannon(self):
         return (self.Orbital , 'O-Rail', self.stratagem(self.RIGHT, self.UP, self.DOWN, self.DOWN, self.RIGHT))
+
+    # Bridge
+    @property
+    def Precision(self):
+        return (self.Orbital, 'O-Prec', self.stratagem(self.RIGHT, self.RIGHT, self.UP))
 
     @property
     def Gas(self):

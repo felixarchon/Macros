@@ -41,7 +41,18 @@ class HD2_Base:
     @property
     def X(self):
         return Keycode.X
-
+    @property
+    def F21(self):
+        return Keycode.F21
+    @property
+    def F22(self):
+        return Keycode.F22
+    @property
+    def F23(self):
+        return Keycode.F23
+    @property
+    def F24(self):
+        return Keycode.F24
 
 # Mouse Clicks
     def M_L_CLICK(self):
@@ -86,17 +97,13 @@ class HD2_Base:
     def COMM_WHEEL_LEFT(self):
         return {'x':-300}
     def COMM_WHEEL_TOP_RIGHT(self):
-        return {'y':-300, 'x',300}
+        return {'y':-300, 'x':300}
     def COMM_WHEEL_TOP_LEFT(self):
         return {'y':-300, 'x':-300}
     def COMM_WHEEL_BOTTOM_RIGHT(self):
         return {'y':300,'x':300}
     def COMM_WHEEL_BOTTOM_LEFT(self):
         return {'y':300,'x':-300}
-
-
-
-
 
 
     #Colors
@@ -155,7 +162,7 @@ class SupportWeapons(HD2_Base):
     def __init__(self):
         super().__init__()
     
-    # Patriotic Administration Center
+# Patriotic Administration Center
     @property
     def MachineGun(self): 
         return (self.Support, 'MG', self.stratagem(self.DOWN,self.LEFT,self.DOWN,self.UP,self.RIGHT))
@@ -208,7 +215,7 @@ class SupportWeapons(HD2_Base):
     def WASP(self):
         return (self.Support, 'WASP', self.stratagem(self.DOWN,self.DOWN,self.UP,self.DOWN,self.RIGHT))
 
-    # Engineering Bay
+# Engineering Bay
     @property
     def GrenadeLauncher(self):
         return (self.Support, 'G-Lnch', self.stratagem(self.DOWN, self.LEFT, self.UP, self.LEFT, self.DOWN))
@@ -225,7 +232,7 @@ class SupportWeapons(HD2_Base):
     def QuasarCannon(self):
         return (self.Support, 'Qsr-C', self.stratagem(self.DOWN, self.DOWN, self.UP, self.LEFT, self.RIGHT))
 
-    # Warbonds
+# Warbonds
     @property
     def Sterilizer(self):
         return (self.Support, 'Steri', self.stratagem(self.DOWN,self.LEFT,self.UP,self.DOWN,self.LEFT))
@@ -265,6 +272,11 @@ class SupportWeapons(HD2_Base):
     @property
     def Defoliation(self):
         return (self.Support, 'Chain', self.stratagem(self.DOWN, self.LEFT, self.RIGHT, self.RIGHT, self.DOWN))
+
+    @property
+    def C4(self):
+        return (self.Support, 'C4', self.stratagem(self.DOWN, self.RIGHT, self.UP, self.UP, self.RIGHT, self.UP))
+
 
 class GuardDogs(HD2_Base):
     def __init__(self):
@@ -570,3 +582,19 @@ class Functions(HD2_Base):
     @property
     def DropSamples(self):
         return (self.Function, 'D_Back', self.drop_samples())
+
+    @property
+    def F21(self):
+        return (self.Function, 'F21', self.stratagem(self.F21))
+
+    @property
+    def F22(self):
+        return (self.Function, 'F22', self.stratagem(self.F22))
+
+    @property
+    def F23(self):
+        return (self.Function, 'F23', self.stratagem(self.F23))
+
+    @property
+    def F24(self):
+        return (self.Function, 'F24', self.stratagem(self.F24))

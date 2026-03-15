@@ -1,0 +1,29 @@
+trigger:
+  - main # or whichever branches you want to sync
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+- group: github-sync-secrets # The name of your Variable Group
+
+steps:
+- checkout: self
+  persistCredentials: true # Vital: Allows the script to use the AzDO token
+
+- script: |
+    # 1. Configure Git identity
+    git config --global user.email "kelcey.casson@gmail.com"
+    git config --global user.name "Azure DevOps Pipeline"
+
+    # 2. Add the GitHub remote using the PAT for authentication
+    # Format: https://<PAT>@github.com/<Owner>/<Repo>.git
+    git remote add github https://$(GitHub_PAT)@github.com/felixarchon/Macros.git
+
+    # 3. Fetch all branches and tags
+    git fetch --unshallow || git fetch --all
+
+    # 4. Push to GitHub
+    # --mirror pushes all refs, including branches and tags
+    git push github --mirror
+  displayName: 'Sync Repo to GitHub'

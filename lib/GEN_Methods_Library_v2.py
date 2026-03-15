@@ -66,7 +66,7 @@ class GEN:
     CTRL = Keycode.CONTROL
     ALT = Keycode.ALT
     SHFT = Keycode.SHIFT
-    DEL = Keycode.DEL
+    DEL = Keycode.DELETE
     SPACE = Keycode.SPACE
     ENTER = Keycode.ENTER
 
@@ -111,7 +111,10 @@ class GEN:
         return keylist
 
     @staticmethod
-    def keytimes(keytimes=[]):
+    def keytimes(keytimes=None):
+        if keytimes is None:
+            keytimes=[]
+
         keylist=[]
 
         for key, delay in keytimes:
@@ -125,7 +128,7 @@ class GEN:
         keylist = []
 
         for key in argv:
-            keylist += [key, HD2.KEY_DELAY, -key, HD2.KEY_DELAY]
+            keylist += [key, GEN.PRESS_DELAY, -key, GEN.PRESS_DELAY]
 
         return keylist
     

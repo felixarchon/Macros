@@ -15,7 +15,7 @@ app = {
         # 2nd row ----------
         Sentries.MachineGun,
         Sentries.AutoCannon,
-        SupportWeapons.Quasar,        
+        SupportWeapons.QuasarCannon,        
 
         # 3rd row ----------
         Eagles.Bomb_500kg,

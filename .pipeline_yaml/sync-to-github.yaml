@@ -13,7 +13,7 @@ steps:
 
 - script: |
     # 1. Configure Git identity
-    git config --global user.email "kelcey.casson@gmail.com"
+    git config --global user.email "devops-pipeline@kelceycasson.com"
     git config --global user.name "Azure DevOps Pipeline"
 
     # 2. Add the GitHub remote using the PAT for authentication
@@ -24,6 +24,8 @@ steps:
     git fetch --unshallow || git fetch --all
 
     # 4. Push to GitHub
-    # --mirror pushes all refs, including branches and tags
-    git push github --mirror
+    # Push all branches and tags individually
+    # This avoids the "delete current branch" conflict
+    git push github "refs/remotes/origin/*:refs/heads/*" --force
+    git push github --tags --force
   displayName: 'Sync Repo to GitHub'

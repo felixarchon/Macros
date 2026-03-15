@@ -9,12 +9,18 @@ variables:
 
 steps:
 - checkout: self
-  persistCredentials: true # Vital: Allows the script to use the AzDO token
+  fetchDepth: 0 # Get full history from Azure DevOps
+  persistCredentials: true
 
 - script: |
-    git remote add github https://$(GitHub_PAT)@github.com/felixarchon/Macros.git
-
-    # We use --no-thin to prevent the 'index-pack' error
-    # and --force to overwrite the existing GitHub history
+    # Add GitHub as a remote
+    git remote add github https://$(GITHUB_PAT)@github.com/felixarchon/Macros.git
+    
+    # IMPORTANT: Fetch the GitHub repo so the agent knows what it's overwriting
+    # This often solves the "expected object" error because it fills the local cache
+    git fetch github main
+    
+    # Push the AzDO HEAD to GitHub main
+    # --force-with-lease is safer, but --force is fine for a mirror sync
     git push github HEAD:main --force --no-thin
-  displayName: 'Sync main to GitHub'
+  displayName: 'Hard Sync to GitHub'

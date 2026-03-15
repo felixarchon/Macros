@@ -14,7 +14,7 @@ steps:
 
 - script: |
     # Add GitHub as a remote
-    git remote add github https://$(GITHUB_PAT)@github.com/felixarchon/Macros.git
+    git remote add github https://$(GitHub_PAT)@github.com/felixarchon/Macros.git
     
     # IMPORTANT: Fetch the GitHub repo so the agent knows what it's overwriting
     # This often solves the "expected object" error because it fills the local cache

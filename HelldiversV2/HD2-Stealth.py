@@ -1,20 +1,20 @@
 #Macropad, Hotkeys - Helldivers 2 - C4 Build
-from HD2_Stratagem_List_v2 import SupportWeapons, Missions, Orbitals, Eagles, Sentries, Functions
+from HD2_Stratagem_List_v2 import SupportWeapons, Missions, Backpacks, Eagles, Functions
 
 none = (0x000000, '', [])
 
 app = {
-    'name' : 'HD2 - C4',
+    'name' : 'HD2 - Stealth',
     'macros' : [
         # COLOR     LABEL       KEY SEQUENCE
         # 1st row ----------
         SupportWeapons.C4,
-        Orbitals.Precision,
-        Orbitals.Gatling,
+        SupportWeapons.Speargun,
+        SupportWeapons.MissleSilo,
 
         # 2nd row ----------
-        Sentries.MachineGun,
-        Sentries.AutoCannon,
+        SupportWeapons.PortableHellbomb,
+        Backpacks.Supply,
         none,
 
         # 3rd row ----------

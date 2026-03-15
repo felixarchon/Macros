@@ -15,7 +15,7 @@ app = {
         # 2nd row ----------
         Orbitals.Precision,
         Eagles.Bomb_500kg,
-        GuardDogs.DogBreath,
+        SupportWeapons.GrenadeLauncher,
         
         # 3rd row ----------
         Orbitals.Gatling,

@@ -124,6 +124,9 @@ class SupportWeapons(HD2):
     Maxigun = (HD2.Support, 'Maxi', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.DOWN, HD2.UP, HD2.UP))
     Defoliation = (HD2.Support, 'Chain', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.RIGHT, HD2.DOWN))
     C4 = (HD2.Support, 'C4', HD2.stratagem(HD2.DOWN, HD2.RIGHT, HD2.UP, HD2.UP, HD2.RIGHT, HD2.UP))
+    Hammer = (HD2.Support, 'Hamm', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.LEFT, HD2.UP))
+    Leveller = (HD2.Support, 'Lev', HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.LEFT, HD2.UP, HD2.DOWN))
+    BFGrenade = (HD2.Support, 'G-BFL', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.UP, HD2.LEFT, HD2.UP, HD2.UP))
 
 class GuardDogs(HD2):
     Rover = (HD2.Guard, 'Grd-L', HD2.stratagem(HD2.DOWN,HD2.UP,HD2.LEFT,HD2.UP,HD2.RIGHT,HD2.RIGHT))
@@ -150,6 +153,7 @@ class Vehicles(HD2):
     PatriotExosuit = (HD2.Vehicle, 'P-Exo', HD2.stratagem(HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.UP, HD2.LEFT, HD2.DOWN, HD2.DOWN))
     FastReconVehicle = (HD2.Vehicle, 'Recon', HD2.stratagem(HD2.RIGHT, HD2.DOWN, HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.DOWN, HD2.UP))
     EmancipatorExosuit = (HD2.Vehicle, 'E-Exo', HD2.stratagem(HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.UP, HD2.LEFT, HD2.DOWN, HD2.UP))
+    Bastion = (HD2.Vehicle, 'B-Tank',HD2.stratagem(HD2.LEFT,HD2.DOWN,HD2.RIGHT,HD2.DOWN,HD2.LEFT,HD2.DOWN,HD2.UP,HD2.DOWN,HD2.UP))
 
 class Sentries(HD2):
     # Bridge
@@ -220,9 +224,11 @@ class Functions(HD2):
     ArmDropHellbomb = (HD2.Function, 'D-Hell', [HD2.FIVE, HD2.SHORT_DELAY, -HD2.FIVE, HD2.SHORT_DELAY] + HD2.drop_back)
     DropStratagem = (HD2.Function, 'D_Strat', HD2.drop_stratagem)
     DropBackpack = (HD2.Function, 'D_Back', HD2.drop_back)
-    DropSamples = (HD2.Function, 'D_Back', HD2.drop_samples)
+    DropSamples = (HD2.Function, 'D_Samp', HD2.drop_samples)
 
     C4_Swap_Fire = (HD2.Function, 'C4-F', HD2.keypress(HD2.WW_RIGHT))
+    OneTwo_Swap_Fire = (HD2.Function, '1-2-F', HD2.keypress(HD2.WW_DOWN))
+    Var_Swap_Fire = (HD2.Function, 'Var-F', HD2.keypress(HD2.WW_LEFT))
 
     WW_UP = (HD2.Function, 'F21', HD2.keypress(HD2.WW_UP))
     WW_DOWN = (HD2.Function, 'F22', HD2.keypress(HD2.WW_DOWN))

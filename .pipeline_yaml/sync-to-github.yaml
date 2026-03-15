@@ -9,7 +9,7 @@ variables:
 
 steps:
 - checkout: self
-  fetchDepth: 0 # Get full history from Azure DevOps
+  fetchDepth: 1 # Get full history from Azure DevOps
   persistCredentials: true
 
 - script: |
@@ -22,5 +22,5 @@ steps:
     
     # Push the AzDO HEAD to GitHub main
     # --force-with-lease is safer, but --force is fine for a mirror sync
-    git push github HEAD:refs/heads/main --force --no-thin
+    git push github main
   displayName: 'Hard Sync to GitHub'

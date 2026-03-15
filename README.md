@@ -15,11 +15,11 @@ Inspired by the [macros](https://adafruit-playground.com/u/squid_jpg/pages/easy-
 
 ## Setup
 
-Place the [HD2_Stratagem_List.py](/Helldivers/HD2_Stratagem_List.py) in the `lib` folder of the Hotkeys code, on the Macropad.
+Place the [HD2_Stratagem_List_v2.py](/Helldivers/HD2_Stratagem_List_v2.py) in the `lib` folder of the Hotkeys code, on the Macropad.
 
 Individual macro files to be used should be placed in the `macros` folder of the Hotkeys code.
 
-The included macro files are just examples of how to write your own macros using the `HD2_Stratagem_List.py` Library. The concept behing the example files is that each file is a potential and flexible loadout for a given situation.
+The included macro files are just examples of how to write your own macros using the `HD2_Stratagem_List_v2.py` Library. The concept behing the example files is that each file is a potential and flexible loadout for a given situation.
 
 ## Customize
 

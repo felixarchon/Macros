@@ -14,7 +14,5 @@ steps:
 - script: |
     git remote add github https://$(GitHub_PAT)@github.com/felixarchon/Macros.git
 
-    git fetch origin main
-
-    git push github main:main --force
+    git push github HEAD:main --force
   displayName: 'Sync main to GitHub'

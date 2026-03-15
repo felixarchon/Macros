@@ -12,20 +12,9 @@ steps:
   persistCredentials: true # Vital: Allows the script to use the AzDO token
 
 - script: |
-    # 1. Configure Git identity
-    git config --global user.email "devops-pipeline@kelceycasson.com"
-    git config --global user.name "Azure DevOps Pipeline"
-
-    # 2. Add the GitHub remote using the PAT for authentication
-    # Format: https://<PAT>@github.com/<Owner>/<Repo>.git
     git remote add github https://$(GitHub_PAT)@github.com/felixarchon/Macros.git
 
-    # 3. Fetch all branches and tags
-    git fetch --unshallow || git fetch --all
+    git fetch origin main
 
-    # 4. Push to GitHub
-    # Push all branches and tags individually
-    # This avoids the "delete current branch" conflict
-    git push github "refs/remotes/origin/*:refs/heads/*" --force
-    git push github --tags --force
-  displayName: 'Sync Repo to GitHub'
+    git push github main:main --force
+  displayName: 'Sync main to GitHub'

@@ -22,5 +22,5 @@ steps:
     
     # Push the AzDO HEAD to GitHub main
     # --force-with-lease is safer, but --force is fine for a mirror sync
-    git push github HEAD:main --force --no-thin
+    git push github HEAD:refs/heads/main --force --no-thin
   displayName: 'Hard Sync to GitHub'

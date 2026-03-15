@@ -15,7 +15,7 @@ Inspired by the [macros](https://adafruit-playground.com/u/squid_jpg/pages/easy-
 
 ## Setup
 
-Place the [HD2_Stratagem_List_v2.py](/Helldivers/HD2_Stratagem_List_v2.py) in the `lib` folder of the Hotkeys code, on the Macropad.
+Place the [HD2_Stratagem_List_v2.py](/lib/HD2_Stratagem_List_v2.py) in the `lib` folder of the Hotkeys code, on the Macropad.
 
 Individual macro files to be used should be placed in the `macros` folder of the Hotkeys code.
 

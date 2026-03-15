@@ -13,11 +13,22 @@ steps:
   persistCredentials: true
 
 - script: |
-    # 1. Add the GitHub remote
+    # 1. Setup identity (required to make a temporary local commit)
+    git config --global user.email "devops-pipeline@kelceycasson.com"
+    git config --global user.name "Azure DevOps Pipeline"
+
+    # 2. Add the GitHub remote
     git remote add github https://$(GitHub_PAT)@github.com/felixarchon/Macros.git
     
-    # 2. Push HEAD to main
-    # This maps your current commit directly to the GitHub main branch.
-    # We remove --force so it only pushes if the histories match up.
-    git push github HEAD:main
-  displayName: 'Steady State Sync'
+    # 3. Remove the folder you don't want on GitHub
+    # Use 'git rm' so Git tracks the deletion
+    if [ -d ".pipeline_yaml" ]; then
+      git rm -rf .pipeline_yaml
+      git commit -m "Exclude pipeline files from GitHub sync"
+    fi
+
+    # 4. Push the modified HEAD to GitHub
+    # Note: You MUST use --force here because you are technically 
+    # changing the history by removing a folder.
+    git push github HEAD:main --force
+  displayName: 'Sync to GitHub (Excluding Pipeline Folder)'

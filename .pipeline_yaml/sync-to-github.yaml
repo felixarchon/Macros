@@ -1,26 +1,23 @@
 trigger:
-  - main # or whichever branches you want to sync
+  - main
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-- group: github-sync-secrets # The name of your Variable Group
+- group: github-sync-secrets
 
 steps:
 - checkout: self
-  fetchDepth: 1 # Get full history from Azure DevOps
+  fetchDepth: 0 # Keeping full history ensures a smooth link between repos
   persistCredentials: true
 
 - script: |
-    # Add GitHub as a remote
+    # 1. Add the GitHub remote
     git remote add github https://$(GitHub_PAT)@github.com/felixarchon/Macros.git
     
-    # IMPORTANT: Fetch the GitHub repo so the agent knows what it's overwriting
-    # This often solves the "expected object" error because it fills the local cache
-    git fetch github main
-    
-    # Push the AzDO HEAD to GitHub main
-    # --force-with-lease is safer, but --force is fine for a mirror sync
-    git push github main
-  displayName: 'Hard Sync to GitHub'
+    # 2. Push HEAD to main
+    # This maps your current commit directly to the GitHub main branch.
+    # We remove --force so it only pushes if the histories match up.
+    git push github HEAD:main
+  displayName: 'Steady State Sync'

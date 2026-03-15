@@ -14,5 +14,7 @@ steps:
 - script: |
     git remote add github https://$(GitHub_PAT)@github.com/felixarchon/Macros.git
 
-    git push github HEAD:main --force
+    # We use --no-thin to prevent the 'index-pack' error
+    # and --force to overwrite the existing GitHub history
+    git push github HEAD:main --force --no-thin
   displayName: 'Sync main to GitHub'

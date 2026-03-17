@@ -127,6 +127,7 @@ class SupportWeapons(HD2):
     Hammer = (HD2.Support, 'Hamm', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.LEFT, HD2.UP))
     Leveller = (HD2.Support, 'Lev', HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.LEFT, HD2.UP, HD2.DOWN))
     BFGrenade = (HD2.Support, 'G-BFL', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.UP, HD2.LEFT, HD2.UP, HD2.UP))
+    Cremator = (HD2.Support, 'Fm-BF', HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.RIGHT, HD2.DOWN, HD2.UP, HD2.UP))
 
 class GuardDogs(HD2):
     Rover = (HD2.Guard, 'Grd-L', HD2.stratagem(HD2.DOWN,HD2.UP,HD2.LEFT,HD2.UP,HD2.RIGHT,HD2.RIGHT))
@@ -171,15 +172,16 @@ class Sentries(HD2):
     #Robotics Workshop
     MachineGun = (HD2.Sentry, 'S-MG', HD2.stratagem(HD2.DOWN,HD2.UP,HD2.RIGHT,HD2.RIGHT,HD2.UP))
     Gatling = (HD2.Sentry, 'S-Gat', HD2.stratagem(HD2.DOWN,HD2.UP,HD2.RIGHT,HD2.LEFT))
-    Mortar = (HD2.Sentry, 'S-Mor', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.RIGHT, HD2.RIGHT, HD2.DOWN))
+    Mortar = (HD2.Sentry, 'MS-Mor', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.RIGHT, HD2.RIGHT, HD2.DOWN))
     AutoCannon = (HD2.Sentry, 'S-AC', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.RIGHT, HD2.UP, HD2.LEFT, HD2.UP))
     Rocket = (HD2.Sentry, 'S-Roc', HD2.stratagem(HD2.DOWN,HD2.UP,HD2.RIGHT,HD2.RIGHT,HD2.LEFT))
-    EMS = (HD2.Sentry, 'S-EMS', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.RIGHT, HD2.DOWN, HD2.RIGHT))
+    MortarEMS = (HD2.Sentry, 'MS-EMS', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.RIGHT, HD2.DOWN, HD2.RIGHT))
 
     # Warbonds
     AntiTankEmplacement = (HD2.Sentry, 'E-AT', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.LEFT, HD2.RIGHT, HD2.RIGHT, HD2.RIGHT))
     Flame = (HD2.Sentry, 'S-FLAM', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.RIGHT, HD2.DOWN, HD2.UP, HD2.UP))
     Laser = (HD2.Sentry, 'S-LAS', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.RIGHT, HD2.DOWN, HD2.UP, HD2.RIGHT))
+    MortarGas = (HD2.Sentry, 'MS-Gas', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.RIGHT, HD2.DOWN, HD2.LEFT))
 
 class Orbitals(HD2):
     # Orbital Cannons
@@ -226,8 +228,8 @@ class Functions(HD2):
     DropBackpack = (HD2.Function, 'D_Back', HD2.drop_back)
     DropSamples = (HD2.Function, 'D_Samp', HD2.drop_samples)
 
-    C4_Swap_Fire = (HD2.Function, 'C4-F', HD2.keypress(HD2.WW_RIGHT))
-    OneTwo_Swap_Fire = (HD2.Function, '1-2-F', HD2.keypress(HD2.WW_DOWN))
+    C4_Swap_Fire = (HD2.Function, 'C4-F', HD2.keypress(HD2.WW_LEFT))
+    OneTwo_Swap_Fire = (HD2.Function, '1-2-F', HD2.keypress(HD2.WW_LEFT))
     Var_Swap_Fire = (HD2.Function, 'Var-F', HD2.keypress(HD2.WW_LEFT))
 
     WW_UP = (HD2.Function, 'F21', HD2.keypress(HD2.WW_UP))

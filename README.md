@@ -23,3 +23,11 @@ The included macro files are just examples of how to write your own macros using
 
 ## Customize
 
+
+## Updates Notes
+- 3/17/2026: Updated HD2 library to match changes in the March 13th, 2026 Patch
+  - Added B/FLAM-80 Cremator as Cremetor
+  - Updated the OneTwo and C4 Swap functions
+  - Renamed EMS Mortar from EMS to MortarEMS
+  - Added Gas Mortar as MortarGas 
+

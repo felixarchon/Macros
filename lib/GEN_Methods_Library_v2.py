@@ -69,6 +69,9 @@ class GEN:
     DEL = Keycode.DELETE
     SPACE = Keycode.SPACE
     ENTER = Keycode.ENTER
+    TAB = Keycode.TAB
+    INS = Keycode.INSERT
+    CAPLOCK = Keycode.CAPS_LOCK
 
     #Function Keys
     F1 = Keycode.F1
@@ -125,7 +128,10 @@ class GEN:
 
     #from gw2 fireworks
     @staticmethod
-    def combos(delay, keys=[]):    
+    def combos(delay, keys=[]):
+        if keys is None:
+            keys=[]
+    
         keylist = []
 
         for key in keys:

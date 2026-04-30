@@ -95,7 +95,7 @@ class SupportWeapons(HD2):
     MachineGun = (HD2.Support, 'MG', HD2.stratagem(HD2.DOWN,HD2.LEFT,HD2.DOWN,HD2.UP,HD2.RIGHT))
     AntiMaterial = (HD2.Support, 'AMR', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.UP, HD2.DOWN))
     Stallwart = (HD2.Support, 'Stal', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.DOWN, HD2.UP, HD2.UP, HD2.LEFT))
-    ExpendableAntiTank = (HD2.Support, 'EAT', HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.LEFT, HD2.UP, HD2.RIGHT))
+    ExpendableAntiTank = (HD2.Support, 'E-AT', HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.LEFT, HD2.UP, HD2.RIGHT))
     RecoillessRifle = (HD2.Support, 'R-Rfl', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.RIGHT, HD2.LEFT)) 
     Flamethrower = (HD2.Support, 'Flm', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.UP, HD2.DOWN, HD2.UP))
     AutoCannon = (HD2.Support, 'AC', HD2.stratagem(HD2.DOWN,HD2.LEFT,HD2.DOWN,HD2.UP,HD2.UP,HD2.RIGHT))
@@ -119,22 +119,23 @@ class SupportWeapons(HD2):
     DeEscalator = (HD2.Support, 'DeEs', HD2.stratagem(HD2.DOWN, HD2.RIGHT, HD2.UP, HD2.LEFT, HD2.RIGHT))
     Epoch = (HD2.Support, 'Epoch', HD2.stratagem(HD2.DOWN,HD2.LEFT,HD2.UP,HD2.LEFT,HD2.RIGHT))
     Speargun = (HD2.Support, 'Sp-Gn',HD2.stratagem(HD2.DOWN, HD2.RIGHT, HD2.DOWN, HD2.LEFT, HD2.UP, HD2.RIGHT))
-    ExpendableNapalm = (HD2.Support, 'ENap', HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.LEFT, HD2.UP, HD2.LEFT))
-    MissleSilo = (HD2.Support, 'MSilo', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.RIGHT, HD2.DOWN, HD2.DOWN))
+    ExpendableNapalm = (HD2.Support, 'E-Nap', HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.LEFT, HD2.UP, HD2.LEFT))
+    MissleSilo = (HD2.Support, 'E-MS', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.RIGHT, HD2.DOWN, HD2.DOWN))
     Maxigun = (HD2.Support, 'Maxi', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.DOWN, HD2.UP, HD2.UP))
     Defoliation = (HD2.Support, 'Chain', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.RIGHT, HD2.DOWN))
     C4 = (HD2.Support, 'C4', HD2.stratagem(HD2.DOWN, HD2.RIGHT, HD2.UP, HD2.UP, HD2.RIGHT, HD2.UP))
     Hammer = (HD2.Support, 'Hamm', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.LEFT, HD2.UP))
-    Leveller = (HD2.Support, 'Lev', HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.LEFT, HD2.UP, HD2.DOWN))
+    Leveller = (HD2.Support, 'E-Lev', HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.LEFT, HD2.UP, HD2.DOWN))
     BFGrenade = (HD2.Support, 'G-BFL', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.UP, HD2.LEFT, HD2.UP, HD2.UP))
     Cremator = (HD2.Support, 'Fm-BF', HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.RIGHT, HD2.DOWN, HD2.UP, HD2.UP))
+    BulletStorm = (HD2.Support, 'E-BS', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.UP, HD2.LEFT))
 
 class GuardDogs(HD2):
     Rover = (HD2.Guard, 'Grd-L', HD2.stratagem(HD2.DOWN,HD2.UP,HD2.LEFT,HD2.UP,HD2.RIGHT,HD2.RIGHT))
     GuardDog = (HD2.Guard, 'Grd-M', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.LEFT, HD2.UP, HD2.RIGHT, HD2.DOWN))
     DogBreath = (HD2.Guard, 'Grd-G', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.LEFT, HD2.UP, HD2.RIGHT, HD2.UP))
     KNine = (HD2.Guard, 'Grd-E', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.LEFT, HD2.UP, HD2.RIGHT, HD2.LEFT))
-    HotDog = (HD2.Guard, 'Grd-F', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.LEFT, HD2.UP, HD2.RIGHT, HD2.RIGHT))
+    HotDog = (HD2.Guard, 'Grd-F', HD2.stratagem(HD2.DOWN, HD2.UP, HD2.LEFT, HD2.UP, HD2.LEFT, HD2.LEFT))
 
 class Backpacks(HD2):
     # Hanger
@@ -155,6 +156,8 @@ class Vehicles(HD2):
     FastReconVehicle = (HD2.Vehicle, 'Recon', HD2.stratagem(HD2.RIGHT, HD2.DOWN, HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.DOWN, HD2.UP))
     EmancipatorExosuit = (HD2.Vehicle, 'E-Exo', HD2.stratagem(HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.UP, HD2.LEFT, HD2.DOWN, HD2.UP))
     Bastion = (HD2.Vehicle, 'B-Tank',HD2.stratagem(HD2.LEFT,HD2.DOWN,HD2.RIGHT,HD2.DOWN,HD2.LEFT,HD2.DOWN,HD2.UP,HD2.DOWN,HD2.UP))
+    LumbererExosuit = (HD2.Vehicle, 'L-Exo',HD2.stratagem(HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.UP, HD2.RIGHT, HD2.LEFT, HD2.UP))
+    BreakthroughExosuit = (HD2.Vehicle, 'B-Exo',HD2.stratagem(HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.LEFT, HD2.RIGHT, HD2.DOWN, HD2.UP))
 
 class Sentries(HD2):
     # Bridge

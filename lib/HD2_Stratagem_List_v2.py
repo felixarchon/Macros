@@ -129,6 +129,7 @@ class SupportWeapons(HD2):
     BFGrenade = (HD2.Support, 'G-BFL', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.UP, HD2.LEFT, HD2.UP, HD2.UP))
     Cremator = (HD2.Support, 'Fm-BF', HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.RIGHT, HD2.DOWN, HD2.UP, HD2.UP))
     BulletStorm = (HD2.Support, 'E-BS', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.UP, HD2.LEFT))
+    Meltagun = (HD2.Support, 'Melta', HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.UP, HD2.LEFT, HD2.LEFT, HD2.DOWN))
 
 class GuardDogs(HD2):
     Rover = (HD2.Guard, 'Grd-L', HD2.stratagem(HD2.DOWN,HD2.UP,HD2.LEFT,HD2.UP,HD2.RIGHT,HD2.RIGHT))

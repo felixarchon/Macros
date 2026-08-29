@@ -1,4 +1,5 @@
 from adafruit_hid.keycode import Keycode
+from adafruit_hid.mouse import Mouse
 
 # This file goes in the root directory (same as code.py)
 class GEN:
@@ -6,6 +7,8 @@ class GEN:
     START_STRATAGEM_INPUT_DELAY = 0.5    
     STRATAGEM_KEY_DELAY = 0.1    
     PRESS_DELAY = 0.1
+    CLICK_DELAY = 0.1
+    DOUBLE_CLICK_DELAY = 0.02
     JIGGLER_DELAY = 60.0
 
     START_STRATAGEM = Keycode.CONTROL
@@ -22,6 +25,14 @@ class GEN:
     M_DOWN = {'y':10}
     M_LEFT = {'x':-10}
     M_RIGHT = {'x':10}
+
+    # Mouse Buttons
+    L_CLICK = {'buttons':Mouse.LEFT_BUTTON}
+    R_CLICK = {'buttons':Mouse.RIGHT_BUTTON}
+    M_CLICK = {'buttons':Mouse.MIDDLE_BUTTON}
+    L_RELEASE = {'buttons':-Mouse.LEFT_BUTTON}
+    R_RELEASE = {'buttons':-Mouse.RIGHT_BUTTON}
+    M_RELEASE = {'buttons':-Mouse.MIDDLE_BUTTON}
 
     #Letter Keys
     A = Keycode.A
@@ -167,5 +178,46 @@ class GEN:
 
         for key in keys:
             keylist += [key]
+
+        return keylist
+
+    @staticmethod
+    def mouse_click(count=1, button=None, delay=None):
+        if button is None:
+            button = GEN.L_CLICK
+        if delay is None:
+            delay = GEN.CLICK_DELAY
+
+        keylist = []
+        for _ in range(int(count)):
+            # Sends the mouse button press, holds for delay, then sends release ({'buttons': 0})
+            keylist += [button, delay, {'buttons': 0}, delay]
+
+        return keylist
+
+    @staticmethod
+    def double_click(count=1, button=None, inter_click_delay=None, delay=None):
+        release = {'buttons':0}
+
+        if button is None:
+            button = GEN.L_CLICK
+            release = GEN.L_RELEASE
+        elif button == GEN.R_CLICK:
+            release = GEN.R_RELEASE
+        elif button == GEN.M_CLICK:
+            release = GEN.M_RELEASE
+            
+        if inter_click_delay is None:
+            inter_click_delay = GEN.DOUBLE_CLICK_DELAY
+        if delay is None:
+            delay = GEN.CLICK_DELAY
+
+        keylist = []
+
+        for _ in range(int(count)):
+            # First Click
+            keylist += [button, inter_click_delay, release, inter_click_delay]
+            # Second Click
+            keylist += [button, inter_click_delay, release, delay]
 
         return keylist

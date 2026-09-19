@@ -15,8 +15,9 @@ app = {
             (GEN.THREE,1.25),
             (GEN.ZERO,0.3),
             (GEN.SEVEN,0.3),
-            (GEN.EIGHT,0.3),
-            (GEN.FOUR,0.3),
+            (GEN.EIGHT,0.1),
+            (GEN.EIGHT,0.3),    
+            (GEN.FOUR,0.75),
             (GEN.TWO,3.0)
         ])),
         (0x000020, 'Frwks',      GEN.combos(8.0, [GEN.ONE,GEN.TWO,GEN.THREE,GEN.ONE,GEN.TWO,GEN.THREE,GEN.ONE,GEN.TWO,GEN.THREE])),

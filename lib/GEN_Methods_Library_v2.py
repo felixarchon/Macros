@@ -183,6 +183,16 @@ class GEN:
 
     @staticmethod
     def mouse_click(count=1, button=None, delay=None):
+        release = {'buttons':0}
+
+        if button is None:
+            button = GEN.L_CLICK
+            release = GEN.L_RELEASE
+        elif button == GEN.R_CLICK:
+            release = GEN.R_RELEASE
+        elif button == GEN.M_CLICK:
+            release = GEN.M_RELEASE
+
         if button is None:
             button = GEN.L_CLICK
         if delay is None:
@@ -191,7 +201,7 @@ class GEN:
         keylist = []
         for _ in range(int(count)):
             # Sends the mouse button press, holds for delay, then sends release ({'buttons': 0})
-            keylist += [button, delay, {'buttons': 0}, delay]
+            keylist += [button, delay, release, delay]
 
         return keylist
 

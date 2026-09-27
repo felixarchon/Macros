@@ -18,7 +18,7 @@ app = {
     'macros' : [
         # COLOR    LABEL        KEY SEQUENCE
         # 1st row ----------
-        (0x000020, '1st',      GEN.keytimes([
+        (0x000020, '1st',      lambda: GEN.keytimes([
             (GEN.ONE,first*half), #1/2
             (GEN.TWO,first*half), #1/2
             (GEN.THREE,first*half), #1/2
@@ -37,7 +37,7 @@ app = {
             (GEN.ONE,first*half), #1/2
             (GEN.SIX,0.0)
         ])),
-        (0x000020, '2nd',      GEN.keytimes([
+        (0x000020, '2nd',      lambda: GEN.keytimes([
             (GEN.SIX,second*eighth), #1/8   1
             (GEN.NINE,second*eighth), #1/8  2
             (GEN.EIGHT,second*half), #1/2  3
@@ -63,7 +63,7 @@ app = {
             (GEN.ONE,second*half), #1/2   23
             (GEN.ONE,0.0)
         ])),
-        (0x000020, '3rd',      GEN.keytimes([
+        (0x000020, '3rd',      lambda: GEN.keytimes([
             (GEN.NINE,0.0),
             (GEN.SIX,0.0),
             (GEN.EIGHT,0.0),
@@ -84,7 +84,7 @@ app = {
         ])),
 
         # 2nd row ----------
-        (0x000020, '4th',      GEN.keytimes([
+        (0x000020, '4th',      lambda: GEN.keytimes([
             (GEN.ZERO,0.0),
             (GEN.ZERO,0.0),
             (GEN.ZERO,0.0),
@@ -104,7 +104,7 @@ app = {
             (GEN.ZERO,0.0),
             (GEN.ZERO,0.0)
         ])),
-        (0x000020, '5th',      GEN.keytimes([
+        (0x000020, '5th',      lambda: GEN.keytimes([
             (GEN.ZERO,0.0),
             (GEN.ZERO,0.0),
             (GEN.ZERO,0.0),
@@ -124,7 +124,7 @@ app = {
             (GEN.ZERO,0.0),
             (GEN.ZERO,0.0)
         ])),
-        (0x000020, '6th',      GEN.keytimes([
+        (0x000020, '6th',      lambda: GEN.keytimes([
             (GEN.ZERO,0.0),
             (GEN.ZERO,0.0),
             (GEN.ZERO,0.0),

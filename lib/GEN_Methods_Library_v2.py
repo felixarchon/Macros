@@ -83,6 +83,7 @@ class GEN:
     TAB = Keycode.TAB
     INS = Keycode.INSERT
     CAPLOCK = Keycode.CAPS_LOCK
+    FSLASH = Keycode.FORWARD_SLASH
 
     #Function Keys
     F1 = Keycode.F1
@@ -116,70 +117,88 @@ class GEN:
     #Methods
     @staticmethod
     def jiggler(repeats, keys=[]):    
-        keylist = []
+        #keylist = []
         repeat = int(repeats)
 
         for i in range(repeat):
             for key in keys:
-                keylist += [GEN.JIGGLER_DELAY, key]
+                #keylist += [GEN.JIGGLER_DELAY, key]
+                yield GEN.JIGGLER_DELAY
+                yield key
 
-        return keylist
+        #return keylist
 
     #from hd2
     @staticmethod
     def stratagem(*argv):
-        keys = [GEN.START_STRATAGEM, GEN.START_STRATAGEM_INPUT_DELAY]
+        #keys = [GEN.START_STRATAGEM, GEN.START_STRATAGEM_INPUT_DELAY]
+        yield GEN.START_STRATAGEM
+        yield GEN.START_STRATAGEM_INPUT_DELAY
 
         for key in argv:
-            keys += [key, GEN.STRATAGEM_KEY_DELAY, -key, GEN.STRATAGEM_KEY_DELAY]
+            #keys += [key, GEN.STRATAGEM_KEY_DELAY, -key, GEN.STRATAGEM_KEY_DELAY]
+            yield key
+            yield GEN.STRATAGEM_KEY_DELAY
+            yield -key
+            yield GEN.STRATAGEM_KEY_DELAY
 
-        return keys
+        #return keys
     
-
-
     #from gw2 fireworks
     @staticmethod
     def combos(delay, keys=[]):
         if keys is None:
             keys=[]
     
-        keylist = []
+        #keylist = []
 
         for key in keys:
-            keylist += [key, GEN.PRESS_DELAY, -key, delay]
+            #keylist += [key, GEN.PRESS_DELAY, -key, delay]
+            yield key
+            yield GEN.PRESS_DELAY
+            yield -key
+            yield delay
 
-        return keylist
+        #return keylist
 
     @staticmethod
     def keytimes(keytimes=None):
         if keytimes is None:
             keytimes=[]
 
-        keylist=[]
+        #keylist=[]
 
         for key, delay in keytimes:
-            keylist += [key, GEN.PRESS_DELAY, -key, delay]
+            #keylist += [key, GEN.PRESS_DELAY, -key, delay]
+            yield key
+            yield GEN.PRESS_DELAY
+            yield -key
+            yield delay
 
-        return keylist
+        #return keylist
     
-
     @staticmethod
     def keypress(*argv):    
-        keylist = []
+        #keylist = []
 
         for key in argv:
-            keylist += [key, GEN.PRESS_DELAY, -key, GEN.PRESS_DELAY]
+            #keylist += [key, GEN.PRESS_DELAY, -key, GEN.PRESS_DELAY]
+            yield key
+            yield GEN.PRESS_DELAY
+            yield -key
+            yield GEN.PRESS_DELAY
 
-        return keylist
+        #return keylist
     
     @staticmethod
     def shortcuts(keys=[]):    
-        keylist = []
+        #keylist = []
 
         for key in keys:
-            keylist += [key]
+            #keylist += [key]
+            yield key
 
-        return keylist
+       #return keylist
 
     @staticmethod
     def mouse_click(count=1, button=None, delay=None):
@@ -198,12 +217,16 @@ class GEN:
         if delay is None:
             delay = GEN.CLICK_DELAY
 
-        keylist = []
+        #keylist = []
         for _ in range(int(count)):
             # Sends the mouse button press, holds for delay, then sends release ({'buttons': 0})
-            keylist += [button, delay, release, delay]
+            #keylist += [button, delay, release, delay]
+            yield button
+            yield delay
+            yield release
+            yield delay
 
-        return keylist
+        #return keylist
 
     @staticmethod
     def double_click(count=1, button=None, inter_click_delay=None, delay=None):
@@ -222,12 +245,92 @@ class GEN:
         if delay is None:
             delay = GEN.CLICK_DELAY
 
-        keylist = []
+        #keylist = []
 
         for _ in range(int(count)):
             # First Click
-            keylist += [button, inter_click_delay, release, inter_click_delay]
-            # Second Click
-            keylist += [button, inter_click_delay, release, delay]
+            #keylist += [button, inter_click_delay, release, inter_click_delay]
+            yield button
+            yield inter_click_delay
+            yield release
+            yield inter_click_delay
 
-        return keylist
+            # Second Click
+            #keylist += [button, inter_click_delay, release, delay]
+            yield button
+            yield inter_click_delay
+            yield release
+            yield delay
+
+        #return keylist
+
+    @staticmethod
+    def emotes(keys=[]):    
+        #keylist = []
+
+        #keylist += [FSLASH, PRESS_DELAY, -FSLASH, PRESS_DELAY]
+        yield GEN.FSLASH
+        yield GEN.PRESS_DELAY
+        yield -GEN.FSLASH
+        yield GEN.PRESS_DELAY
+
+        for key in keys:
+            #keylist += [key, PRESS_DELAY, -key, PRESS_DELAY]
+            yield key
+            yield GEN.PRESS_DELAY
+            yield -key
+            yield GEN.PRESS_DELAY
+
+        #keylist += [ENTER, PRESS_DELAY, -ENTER, PRESS_DELAY]
+        yield GEN.ENTER
+        yield GEN.PRESS_DELAY
+        yield -GEN.ENTER
+        yield GEN.PRESS_DELAY
+
+        #return keylist
+
+    @staticmethod
+    def mastery(argv):    
+        #keys = [CTRL, KEY_DELAY, ALT, KEY_DELAY, argv, KEY_DELAY]
+        #return keys
+        yield GEN.CTRL
+        yield GEN.PRESS_DELAY
+        yield GEN.ALT
+        yield GEN.PRESS_DELAY
+        yield argv
+        yield GEN.PRESS_DELAY
+
+    @staticmethod
+    def mount(argv):    
+        #eys = [CTRL, KEY_DELAY, ALT, KEY_DELAY, SHFT, KEY_DELAY, argv, KEY_DELAY]
+        #return keys
+        yield GEN.CTRL
+        yield GEN.PRESS_DELAY
+        yield GEN.ALT
+        yield GEN.PRESS_DELAY
+        yield GEN.SHFT
+        yield GEN.PRESS_DELAY
+        yield argv
+        yield GEN.PRESS_DELAY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

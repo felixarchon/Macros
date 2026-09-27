@@ -1,32 +1,32 @@
 #Macropad, Hotkeys - Helldivers 2 - Early Automaton Group Build
-from HD2_Stratagem_List_v2 import SupportWeapons, Sentries, Orbitals, Missions, Backpacks, Eagles, Functions
+from HD2_Stratagem_List_v2 import SupportWeapons, Sentries, Orbitals, Missions, Backpacks, Eagles
 
 none = (0x000000, '', [])
 
 app = {
-    'name' : 'HD2 - Grp Bots Fast',
+    'name' : 'HD2 - Bots Rapid Acq',
     'macros' : [
         # 1st row ----------
-        SupportWeapons.ExpendableAntiTank,
-        SupportWeapons.Commando,
+        Orbitals.Smoke,
+        Sentries.Shield,
         Backpacks.ShieldGenerator,
 
         # 2nd row ----------
         Sentries.Rocket,
         Sentries.AutoCannon,
-        SupportWeapons.Railgun,
+        SupportWeapons.ExpendableAntiTank,
 
         # 3rd row ----------
         Orbitals.RailCannon,
-        Orbitals.Precision,
-        Eagles.Bomb_500kg,
+        SupportWeapons.Commando,
+        Orbitals.Laser,
 
         # 4th row ----------
         Missions.Resupply,
-        Functions.WW_LEFT,
+        SupportWeapons.MissleSilo,
         Missions.Reinforce,
         
         # Encoder button ---
-        Functions.DropBackpack,
+        none,
     ]
 }

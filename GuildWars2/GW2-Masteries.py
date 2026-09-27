@@ -1,62 +1,18 @@
 #Macropad, Hotkeys - Guild Wars 2 - Macro Template
-
-from adafruit_hid.keycode import Keycode
-
-START_INPUT_DELAY = 0.5
-KEY_DELAY = 0.1
-
-CTRL = Keycode.CONTROL
-ALT = Keycode.ALT
-SHFT = Keycode.SHIFT
-
-A = Keycode.A
-B = Keycode.B
-C = Keycode.C
-D = Keycode.D
-E = Keycode.E
-F = Keycode.F
-G = Keycode.G
-H = Keycode.H
-I = Keycode.I
-J = Keycode.J
-K = Keycode.K
-L = Keycode.L
-M = Keycode.M
-N = Keycode.N
-O = Keycode.O
-P = Keycode.P
-Q = Keycode.Q
-R = Keycode.R
-S = Keycode.S
-T = Keycode.T
-U = Keycode.U
-V = Keycode.V
-W = Keycode.W
-X = Keycode.X
-Y = Keycode.Y
-Z = Keycode.Z
-
-UP = Keycode.UP_ARROW
-DOWN = Keycode.DOWN_ARROW
-LEFT = Keycode.LEFT_ARROW
-RIGHT = Keycode.RIGHT_ARROW
-
-def mastery(argv):    
-    keys = [CTRL, KEY_DELAY, ALT, KEY_DELAY, argv, KEY_DELAY]
-    return keys
+from GEN_Methods_Library_v2 import GEN
 
 app = {
     'name' : 'GW2 - Masteries',
     'macros' : [
         # COLOR    LABEL        KEY SEQUENCE
         # 1st row ----------
-        (0x000020, 'Fish',      mastery(F)),
-        (0x000020, 'Skiff',     mastery(S)),
-        (0x000020, 'Bot',       mastery(J)),
+        (0x000020, 'Fish',      lambda: GEN.mastery(GEN.F)),
+        (0x000020, 'Skiff',     lambda: GEN.mastery(GEN.S)),
+        (0x000020, 'Bot',       lambda: GEN.mastery(GEN.J)),
 
         # 2nd row ----------
-        (0x002000, 'Rift',      mastery(R)),
-        (0x002000, 'Door',      mastery(D)),        
+        (0x002000, 'Rift',      lambda: GEN.mastery(GEN.R)),
+        (0x002000, 'Door',      lambda: GEN.mastery(GEN.D)),        
         (0x000000, '',          []),
 
         # 3rd row ----------

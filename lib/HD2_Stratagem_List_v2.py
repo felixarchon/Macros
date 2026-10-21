@@ -1,7 +1,7 @@
 from adafruit_hid.keycode import Keycode
 from adafruit_hid.mouse import Mouse
 
-# This file goes in the root directory (same as code.py)
+# This file goes in the root directory (same as code.py) (possibly the lib folder)
 
 #For the yield-based methods add the following code to your base code.py file 
 # inside the main while statement
@@ -60,6 +60,10 @@ class HD2:
     EMOTE_WHEEL_DOWN = {'y':300}
     EMOTE_WHEEL_LEFT = {'x':-300}
     EMOTE_WHEEL_RIGHT = {'x':300}
+    EMOTE_WHEEL_TOP_RIGHT = {'y':-300, 'x':300}
+    EMOTE_WHEEL_TOP_LEFT = {'y':-300, 'x':-300}
+    EMOTE_WHEEL_BOTTOM_RIGHT = {'y':300,'x':300}
+    EMOTE_WHEEL_BOTTOM_LEFT = {'y':300,'x':-300}
 
     COMM_WHEEL_TOP = {'y':-300}
     COMM_WHEEL_BOTTOM = {'y':300}
@@ -86,7 +90,14 @@ class HD2:
     inv_samples = [X, LONG_DELAY, DROP_WHEEL_DOWN_RIGHT, SHORT_DELAY ,M_L_CLICK]
     inv_carry = [X, LONG_DELAY, DROP_WHEEL_DOWN_LEFT, SHORT_DELAY ,M_L_CLICK]
 
+    comm_loc = [Q, LONG_DELAY, COMM_WHEEL_TOP, SHORT_DELAY ,M_L_CLICK]
+    comm_neg = [Q, LONG_DELAY, COMM_WHEEL_TOP_RIGHT, SHORT_DELAY ,M_L_CLICK]
     comm_yes = [Q, LONG_DELAY, COMM_WHEEL_RIGHT, SHORT_DELAY ,M_L_CLICK]
+    comm_ty = [Q, LONG_DELAY, COMM_WHEEL_BOTTOM_RIGHT, SHORT_DELAY ,M_L_CLICK]
+    comm_sup = [Q, LONG_DELAY, COMM_WHEEL_BOTTOM, SHORT_DELAY ,M_L_CLICK]
+    comm_sry = [Q, LONG_DELAY, COMM_WHEEL_BOTTOM_LEFT, SHORT_DELAY ,M_L_CLICK]
+    comm_hld = [Q, LONG_DELAY, COMM_WHEEL_LEFT, SHORT_DELAY ,M_L_CLICK]
+    comm_flw = [Q, LONG_DELAY, COMM_WHEEL_TOP_LEFT, SHORT_DELAY ,M_L_CLICK]
 
     @staticmethod
     def stratagem(*argv):
@@ -190,9 +201,6 @@ class Backpacks(HD2):
     Hover = (HD2.Backpack, 'B-Hovr', lambda: HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.DOWN, HD2.LEFT, HD2.RIGHT))
     Warp = (HD2.Backpack, 'B-Wrp', lambda: HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.DOWN, HD2.LEFT, HD2.RIGHT))
 
-    # Experimental
-    DarkFluidVessel = (HD2.Backpack, "Fluid", lambda: HD2.stratagem(HD2.UP, HD2.LEFT, HD2.RIGHT, HD2.DOWN, HD2.UP, HD2.UP))
-
 class Vehicles(HD2):
     PatriotExosuit = (HD2.Vehicle, 'P-Exo', lambda: HD2.stratagem(HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.UP, HD2.LEFT, HD2.DOWN, HD2.DOWN))
     FastReconVehicle = (HD2.Vehicle, 'Recon', lambda: HD2.stratagem(HD2.RIGHT, HD2.DOWN, HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.DOWN, HD2.UP))
@@ -259,6 +267,19 @@ class Missions(HD2):
     SEAFArtillery = (HD2.Mission, 'SEAF', lambda: HD2.stratagem(HD2.RIGHT, HD2.UP, HD2.UP, HD2.DOWN))
     SuperEarthFlag = (HD2.Mission, 'Flag', lambda: HD2.stratagem(HD2.DOWN, HD2.UP, HD2.DOWN, HD2.UP))
 
+    E711Drill = (HD2.Mission, 'D-711', lambda: HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.LEFT, HD2.LEFT, HD2.DOWN, HD2.DOWN))
+    ProspectingDrill = (HD2.Mission, 'D-Prs', lambda: HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.DOWN, HD2.DOWN))
+    AquiferDrill = (HD2.Mission, 'D-Aqu', lambda: HD2.stratagem(HD2.LEFT, HD2.LEFT, HD2.LEFT, HD2.UP, HD2.DOWN, HD2.RIGHT, HD2.DOWN, HD2.DOWN))
+    HiveDrill = (HD2.Mission, 'D-Hve', lambda: HD2.stratagem(HD2.LEFT, HD2.UP, HD2.DOWN, HD2.RIGHT, HD2.DOWN, HD2.DOWN))
+
+    Cargo = (HD2.Mission, 'Cargo', lambda: HD2.stratagem(HD2.UP, HD2.UP, HD2.DOWN, HD2.DOWN, HD2.RIGHT, HD2.DOWN))
+    PortableComms = (HD2.Mission, 'Comms', lambda: HD2.stratagem(HD2.UP, HD2.UP, HD2.DOWN, HD2.DOWN, HD2.LEFT, HD2.LEFT, HD2.DOWN))
+    
+    
+    # Experimental
+    DarkFluidVessel = (HD2.Backpack, "Fluid", lambda: HD2.stratagem(HD2.UP, HD2.LEFT, HD2.RIGHT, HD2.DOWN, HD2.UP, HD2.UP))
+
+
 class Eagles(HD2):
     Strafing = (HD2.Eagle, 'E-Strf', lambda: HD2.stratagem(HD2.UP, HD2.RIGHT, HD2.RIGHT))
     Airstrike = (HD2.Eagle, 'E-Air', lambda: HD2.stratagem(HD2.UP, HD2.RIGHT, HD2.DOWN, HD2.RIGHT))
@@ -269,6 +290,11 @@ class Eagles(HD2):
     Bomb_500kg = (HD2.Eagle, 'E-500', lambda: HD2.stratagem(HD2.UP, HD2.RIGHT, HD2.DOWN, HD2.DOWN, HD2.DOWN))
 
 class Functions(HD2):
+    WW_UP = (HD2.Function, 'WW-U', lambda: HD2.keypress(HD2.WW_UP))
+    WW_DOWN = (HD2.Function, 'WW-D', lambda: HD2.keypress(HD2.WW_DOWN))
+    WW_LEFT = (HD2.Function, 'WW-L', lambda: HD2.keypress(HD2.WW_LEFT))
+    WW_RIGHT = (HD2.Function, 'WW-R', lambda: HD2.keypress(HD2.WW_RIGHT))
+
     ArmDropHellbomb = (HD2.Function, 'D-Hell', lambda: [HD2.FIVE, HD2.SHORT_DELAY, -HD2.FIVE, HD2.SHORT_DELAY] + HD2.inv_back)
     DropStratagem = (HD2.Function, 'D_Strat', lambda: HD2.inv_stratagem)
     DropBackpack = (HD2.Function, 'D_Back', lambda: HD2.inv_back)
@@ -280,7 +306,13 @@ class Functions(HD2):
     Stoker_Swap_Fire = (HD2.Function, 'Stok-F', lambda: HD2.keypress(HD2.WW_LEFT))
     Left_Swap = (HD2.Function, 'Lft-S', lambda: HD2.keypress(HD2.WW_LEFT))
 
-    WW_UP = (HD2.Function, 'WW-U', lambda: HD2.keypress(HD2.WW_UP))
-    WW_DOWN = (HD2.Function, 'WW-D', lambda: HD2.keypress(HD2.WW_DOWN))
-    WW_LEFT = (HD2.Function, 'WW-L', lambda: HD2.keypress(HD2.WW_LEFT))
-    WW_RIGHT = (HD2.Function, 'WW-R', lambda: HD2.keypress(HD2.WW_RIGHT))
+    Comms_Loc = (HD2.Function, 'Loc', lambda: HD2.comm_loc)
+    Comms_Neg = (HD2.Function, 'Neg', lambda: HD2.comm_neg)
+    Comms_Yes = (HD2.Function, 'Yes', lambda: HD2.comm_yes)
+    Comms_Ty = (HD2.Function, 'TY', lambda: HD2.comm_ty)
+    Comms_Sup = (HD2.Function, 'Supp', lambda: HD2.comm_sup)
+    Comms_Sry = (HD2.Function, 'Sry', lambda: HD2.comm_sry)
+    Comms_Hld = (HD2.Function, 'Hld', lambda: HD2.comm_hld)
+    Comms_Flw = (HD2.Function, 'Fllw', lambda: HD2.comm_flw)
+
+ 

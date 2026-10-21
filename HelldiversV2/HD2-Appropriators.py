@@ -8,7 +8,7 @@ app = {
     'macros' : [
         # COLOR     LABEL       KEY SEQUENCE
         # 1st row ----------
-        SupportWeapons.C4,        
+        SupportWeapons.WASP,        
         SupportWeapons.Spear,
         Backpacks.Warp,        
 

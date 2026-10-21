@@ -18,8 +18,8 @@ app = {
         Functions.OneTwo_Swap_Fire,
 
         # 3rd row ----------
-        none,
-        none,
+        Functions.Comms_Yes,
+        Functions.Comms_Ty,
         none,
        
         # 4th row ----------

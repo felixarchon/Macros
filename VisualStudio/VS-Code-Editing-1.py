@@ -8,14 +8,14 @@ app = {
     'macros' : [
         # COLOR    LABEL        KEY SEQUENCE
         # 1st row ----------
-        (0x000020, 'Word',      GEN.shortcuts([GEN.CTRL,GEN.SPACE])),
-        (0x000020, 'SigHlp',    GEN.shortcuts([GEN.CTRL,GEN.SHFT,GEN.SPACE])),
-        (0x000020, 'MvUp',      GEN.shortcuts([GEN.ALT,GEN.UP])),
+        (0x000020, 'Word',      lambda: GEN.shortcuts([GEN.CTRL,GEN.SPACE])),
+        (0x000020, 'SigHlp',    lambda: GEN.shortcuts([GEN.CTRL,GEN.SHFT,GEN.SPACE])),
+        (0x000020, 'MvUp',      lambda: GEN.shortcuts([GEN.ALT,GEN.UP])),
         
         # 2nd row ----------
-        (0x000020, 'Dup',      GEN.shortcuts([GEN.CTRL,GEN.D])),
-        (0x000020, 'Del',      GEN.shortcuts([GEN.CTRL,GEN.SHFT,GEN.ENTER])),
-        (0x000020, 'MvDn',     GEN.shortcuts([GEN.ALT,GEN.DOWN])),
+        (0x000020, 'Dup',      lambda: GEN.shortcuts([GEN.CTRL,GEN.D])),
+        (0x000020, 'Del',      lambda: GEN.shortcuts([GEN.CTRL,GEN.SHFT,GEN.ENTER])),
+        (0x000020, 'MvDn',     lambda: GEN.shortcuts([GEN.ALT,GEN.DOWN])),
 
         # 3rd row ----------
         none,

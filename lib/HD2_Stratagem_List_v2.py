@@ -179,6 +179,8 @@ class SupportWeapons(HD2):
     Cremator = (HD2.Support, 'Fm-BF', lambda: HD2.stratagem(HD2.DOWN, HD2.DOWN, HD2.RIGHT, HD2.DOWN, HD2.UP, HD2.UP))
     BulletStorm = (HD2.Support, 'E-BS', lambda: HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.DOWN, HD2.RIGHT, HD2.UP, HD2.LEFT))
     Meltagun = (HD2.Support, 'Melta', lambda: HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.UP, HD2.LEFT, HD2.LEFT, HD2.DOWN))
+    Apex = (HD2.Backpack, 'Apex', lambda: HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.LEFT, HD2.UP, HD2.DOWN, HD2.LEFT))
+    Nova = (HD2.Backpack, 'Nova', lambda: HD2.stratagem(HD2.DOWN, HD2.LEFT, HD2.RIGHT, HD2.DOWN, HD2.DOWN))
 
 class GuardDogs(HD2):
     Rover = (HD2.Guard, 'Grd-L', lambda: HD2.stratagem(HD2.DOWN,HD2.UP,HD2.LEFT,HD2.UP,HD2.RIGHT,HD2.RIGHT))

@@ -7,6 +7,7 @@ class GEN:
     START_STRATAGEM_INPUT_DELAY = 0.5    
     STRATAGEM_KEY_DELAY = 0.1    
     PRESS_DELAY = 0.1
+    HALF_PRESS_DELAY = 0.05
     CLICK_DELAY = 0.1
     DOUBLE_CLICK_DELAY = 0.02
     JIGGLER_DELAY = 60.0
@@ -270,22 +271,22 @@ class GEN:
 
         #keylist += [FSLASH, PRESS_DELAY, -FSLASH, PRESS_DELAY]
         yield GEN.FSLASH
-        yield GEN.PRESS_DELAY
+        yield GEN.HALF_PRESS_DELAY
         yield -GEN.FSLASH
-        yield GEN.PRESS_DELAY
+        yield GEN.HALF_PRESS_DELAY
 
         for key in keys:
             #keylist += [key, PRESS_DELAY, -key, PRESS_DELAY]
             yield key
-            yield GEN.PRESS_DELAY
+            yield GEN.HALF_PRESS_DELAY
             yield -key
-            yield GEN.PRESS_DELAY
+            yield GEN.HALF_PRESS_DELAY
 
         #keylist += [ENTER, PRESS_DELAY, -ENTER, PRESS_DELAY]
         yield GEN.ENTER
-        yield GEN.PRESS_DELAY
+        yield GEN.HALF_PRESS_DELAY
         yield -GEN.ENTER
-        yield GEN.PRESS_DELAY
+        yield GEN.HALF_PRESS_DELAY
 
         #return keylist
 

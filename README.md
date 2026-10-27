@@ -28,7 +28,7 @@ If you don't want to change your code.py, remove the yield-based methods and unc
 
 Example:
 ```python
-    MachineGun = (HD2.Support, 'MG', HD2.stratagem(HD2.DOWN,HD2.LEFT,HD2.DOWN,HD2.UP,HD2.RIGHT))
+    MachineGun = (HD2.Support, 'MG', lambda: HD2.stratagem(HD2.DOWN,HD2.LEFT,HD2.DOWN,HD2.UP,HD2.RIGHT))
 ```
 should change to 
 ```python
